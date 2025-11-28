@@ -1,0 +1,339 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/UMap",
+  "definitions": {
+    "UMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/definitions/UMapGeometry"
+        },
+        "properties": {
+          "$ref": "#/definitions/UMapProperties"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "$ref": "./uMapLayer.json"
+          }
+        }
+      },
+      "required": ["geometry", "layers", "properties", "type", "uri"],
+      "title": "UMap"
+    },
+    "UMapGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": ["coordinates", "type"],
+      "title": "UMapGeometry"
+    },
+    "Layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/LayerType"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feature"
+          }
+        },
+        "_umap_options": {
+          "$ref": "#/definitions/LayerUmapOptions"
+        }
+      },
+      "required": ["_umap_options", "features", "type"],
+      "title": "Layer"
+    },
+    "LayerUmapOptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Field"
+          }
+        },
+        "editMode": {
+          "$ref": "#/definitions/EditMode"
+        },
+        "browsable": {
+          "type": "boolean"
+        },
+        "inCaption": {
+          "type": "boolean"
+        },
+        "showLabel": {
+          "type": "null"
+        },
+        "remoteData": {
+          "$ref": "#/definitions/LimitBounds"
+        },
+        "displayOnLoad": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "browsable",
+        "displayOnLoad",
+        "editMode",
+        "fields",
+        "inCaption",
+        "name",
+        "rank",
+        "remoteData"
+      ],
+      "title": "LayerUmapOptions"
+    },
+    "Field": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/Key"
+        },
+        "type": {
+          "$ref": "#/definitions/FieldType"
+        }
+      },
+      "required": ["key", "type"],
+      "title": "Field"
+    },
+    "LimitBounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "LimitBounds"
+    },
+    "Feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": ["Feature"]
+        },
+        "geometry": {
+          "$ref": "#/definitions/FeatureGeometry"
+        },
+        "properties": {
+          "$ref": "#/definitions/FeatureProperties"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": ["geometry", "id", "properties", "type"],
+      "title": "Feature"
+    },
+    "FeatureGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/GeometryType"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": ["coordinates", "type"],
+      "title": "FeatureGeometry"
+    },
+    "FeatureProperties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fid": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "_umap_options": {
+          "$ref": "#/definitions/PropertiesUmapOptions"
+        }
+      },
+      "required": ["_umap_options", "fid", "name"],
+      "title": "FeatureProperties"
+    },
+    "PropertiesUmapOptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fillColor": {
+          "type": "string"
+        }
+      },
+      "required": ["fillColor"],
+      "title": "PropertiesUmapOptions"
+    },
+    "UMapProperties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "zoom": {
+          "type": "integer"
+        },
+        "center": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lng": {
+              "type": "number"
+            }
+          },
+          "required": ["lat", "lng"],
+          "title": "Center"
+        },
+        "fields": {
+          "type": "array",
+          "items": {}
+        },
+        "licence": {
+          "$ref": "#/definitions/Licence"
+        },
+        "overlay": {
+          "$ref": "#/definitions/LimitBounds"
+        },
+        "showLabel": {
+          "type": "null"
+        },
+        "slideshow": {
+          "$ref": "#/definitions/LimitBounds"
+        },
+        "tilelayer": {
+          "$ref": "#/definitions/LimitBounds"
+        },
+        "description": {
+          "type": "string"
+        },
+        "limitBounds": {
+          "$ref": "#/definitions/LimitBounds"
+        },
+        "onLoadPanel": {
+          "type": "string"
+        },
+        "zoomControl": {
+          "type": "boolean"
+        },
+        "fullscreenControl": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "center",
+        "description",
+        "fields",
+        "fullscreenControl",
+        "licence",
+        "limitBounds",
+        "name",
+        "onLoadPanel",
+        "overlay",
+        "showLabel",
+        "slideshow",
+        "tags",
+        "tilelayer",
+        "zoom",
+        "zoomControl"
+      ],
+      "title": "UMapProperties"
+    },
+    "Licence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "url"],
+      "title": "Licence"
+    },
+    "EditMode": {
+      "type": "string",
+      "enum": ["advanced"],
+      "title": "EditMode"
+    },
+    "Key": {
+      "type": "string",
+      "enum": ["name", "description", "fid"],
+      "title": "Key"
+    },
+    "FieldType": {
+      "type": "string",
+      "enum": ["String", "Text"],
+      "title": "FieldType"
+    },
+    "GeometryType": {
+      "type": "string",
+      "enum": ["MultiPolygon"],
+      "title": "GeometryType"
+    },
+    "FeatureType": {
+      "enum": ["Feature"]
+    },
+    "LayerType": {
+      "type": "string",
+      "enum": ["FeatureCollection"],
+      "title": "LayerType"
+    }
+  }
+}

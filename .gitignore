@@ -1,0 +1,62 @@
+# macOS
+._*
+.DS_Store
+__MACOSX/
+.AppleDouble
+.LSOverride
+# Linux
+*~
+.Trash-*
+.directory
+.fuse_hidden*
+# Node.js
+/*-debug.log*
+/*-error.log*
+/logs
+/coverage
+/node_modules/
+/.npm
+/.next
+/out
+/dist
+/.eslintcache
+/.stylelintcache
+# yarn v3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+/.env*.local
+# Editors&IDEs
+*~
+tags
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+!*.code-workspace
+*.vsix
+*.vscode/*.code-workspace
+.idea
+.~lock.*#
+*.tmp
+~$*.doc*
+~$*.dot*
+~$*.xls*
+~$*.ppt*
+secring.*
+random_defaults.code-workspace
+src/source_data/**/*.csv
+src/source_data/**/*.zip
+src/source_data/**/*.tar
+src/source_data/**/*.tar.*
+src/source_data/**/*.gzg
+src/source_data/**/*.gz
+src/source_data/**/*.bz2
+src/source_data/**/*.xz
+src/source_data/**/*.rar

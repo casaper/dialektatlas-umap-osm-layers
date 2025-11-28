@@ -1,0 +1,58 @@
+{
+  "name": "dialektatlas-umap-osm-layers",
+  "version": "1.0.0",
+  "description": "Generate uMap (OpenStreetMap) configurations with layers showing the regional distribution of Swiss German words based on Dialektatlas data.",
+  "scripts": {},
+  "devDependencies": {
+    "@cspell/eslint-plugin": "^9.3.2",
+    "@eslint/js": "^9.39.1",
+    "@eslint/json": "^0.14.0",
+    "@eslint/markdown": "^7.5.1",
+    "@types/node": "^24.10.1",
+    "cspell": "^9.3.2",
+    "cspell-cli": "^9.3.3",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-formatter-unix": "^9.0.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "geojson-schema": "^1.0.5",
+    "globals": "^16.5.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-sh": "^0.18.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.0"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^14.0.0",
+    "@tsconfig/node24": "^24.0.3",
+    "@types/cli-color": "^2.0.6",
+    "cli-color": "^2.0.4",
+    "commander": "^14.0.2",
+    "quicktype": "^23.2.6",
+    "tsx": "^4.20.6",
+    "zod": "^4.1.12"
+  },
+  "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "engineStrict": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/casaper/dialektatlas-umap-osm-layers.git"
+  },
+  "author": "Kaspar V. <me@casaper.dev>",
+  "homepage": "https://github.com/casaper/dialektatlas-umap-osm-layers?tab=readme-ov-file#readme",
+  "keywords": [
+    "umap",
+    "osm",
+    "layers",
+    "linguistics",
+    "dialects",
+    "switzerland",
+    "swiss german"
+  ],
+  "license": "AGPL-3.0-only"
+}
