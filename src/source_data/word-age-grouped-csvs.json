@@ -464,14 +464,6 @@
     "jung": "pult_3_jung_QGIS.csv",
     "alt": "pult_2_alt_QGIS.csv"
   },
-  "prädadj": {
-    "word": "Prädadj",
-    "wordKey": "prädadj",
-    "jung": "prädadj_3_jung_QGIS.csv",
-    "older": "prädadj_2_older_QGIS.csv",
-    "sds": "prädadj_1_sds_QGIS.csv",
-    "alt": "prädadj_2_alt_QGIS.csv"
-  },
   "postautoPl": {
     "word": "Postauto Pl",
     "wordKey": "postautoPl",
@@ -555,12 +547,6 @@
     "wordKey": "murmel",
     "jung": "murmel_3_jung_QGIS.csv",
     "alt": "murmel_2_alt_QGIS.csv"
-  },
-  "mobility": {
-    "word": "Mobility",
-    "wordKey": "mobility",
-    "jung": "mobility_3_jung_QGIS.csv",
-    "alt": "mobility_2_alt_QGIS.csv"
   },
   "mirjamsHut": {
     "word": "Mirjams Hut",
@@ -1144,12 +1130,6 @@
     "jung": "dichDir_3_jung_QGIS.csv",
     "alt": "dichDir_2_alt_QGIS.csv"
   },
-  "dialectidentity": {
-    "word": "dialectidentity",
-    "wordKey": "dialectidentity",
-    "jung": "dialectidentity_3_jung_QGIS.csv",
-    "alt": "dialectidentity_2_alt_QGIS.csv"
-  },
   "derPatrick": {
     "word": "der Patrick",
     "wordKey": "derPatrick",
@@ -1338,12 +1318,6 @@
     "jung": "apfel_3_jung_QGIS.csv",
     "sds": "apfel_1_sds_QGIS.csv",
     "alt": "apfel_2_alt_QGIS.csv"
-  },
-  "alter": {
-    "word": "Alter",
-    "wordKey": "alter",
-    "jung": "alter_3_jung_QGIS.csv",
-    "alt": "alter_2_alt_QGIS.csv"
   },
   "altFlexion": {
     "word": "alt Flexion",
