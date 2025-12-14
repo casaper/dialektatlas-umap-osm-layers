@@ -67,12 +67,6 @@
     "jung": "walterBenjamin_3_jung_QGIS.csv",
     "alt": "walterBenjamin_2_alt_QGIS.csv"
   },
-  "vot": {
-    "word": "vot",
-    "wordKey": "vot",
-    "jung": "vot_3_jung_QGIS.csv",
-    "alt": "vot_2_alt_QGIS.csv"
-  },
   "vokalEis": {
     "word": "Vokal Eis",
     "wordKey": "vokalEis",
