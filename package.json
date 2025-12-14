@@ -30,6 +30,7 @@
     "@types/cli-color": "^2.0.6",
     "cli-color": "^2.0.4",
     "commander": "^14.0.2",
+    "csv-parse": "^6.1.0",
     "quicktype": "^23.2.6",
     "tsx": "^4.21.0",
     "zod": "^4.1.13"

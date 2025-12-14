@@ -23,6 +23,9 @@ importers:
       commander:
         specifier: ^14.0.2
         version: 14.0.2
+      csv-parse:
+        specifier: ^6.1.0
+        version: 6.1.0
       quicktype:
         specifier: ^23.2.6
         version: 23.2.6
@@ -875,6 +878,9 @@ packages:
     resolution: {integrity: sha512-ZvXO+EY/G0/msu7jwRiVk0sXL/zB7DMJLBvjSUrK82uVbDoDxHwXxUuOz2UVnk2+J61//ldIZrjxVK8KMvaJlg==}
     engines: {node: '>=20'}
     hasBin: true
+
+  csv-parse@6.1.0:
+    resolution: {integrity: sha512-CEE+jwpgLn+MmtCpVcPtiCZpVtB6Z2OKPTr34pycYYoL7sxdOkXDdQ4lRiw6ioC0q6BLqhc6cKweCVvral8yhw==}
 
   d@1.0.2:
     resolution: {integrity: sha512-MOqHvMWF9/9MX6nza0KgvFH4HpMU0EF5uUDXqX/BtxtU8NfB0QzRtJ8Oe/6SuS4kbhyzVJwjd97EA4PKrzJ8bw==}
@@ -2568,6 +2574,8 @@ snapshots:
       flatted: 3.3.3
       semver: 7.7.3
       tinyglobby: 0.2.15
+
+  csv-parse@6.1.0: {}
 
   d@1.0.2:
     dependencies:
