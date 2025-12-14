@@ -62,3 +62,5 @@ src/source_data/**/*.xz
 src/source_data/**/*.rar
 src/source_data/word_mapping_csvs/**/*.json
 src/source_data/unmappable_csvs/**/*.json
+src/source_data/samples.json
+src/source_data/word_data/*.json

@@ -24,7 +24,7 @@ export const WordAgeCsvsSchema = zod.object({
 export type WordAgeCsvs = zod.infer<typeof WordAgeCsvsSchema>;
 export const WordAgeGroupedCsvsSchema = zod.record(
   zod.string(),
-  WordAgeCsvsSchema.optional()
+  WordAgeCsvsSchema
 );
 export type WordAgeGroupedCsvs = zod.infer<typeof WordAgeGroupedCsvsSchema>;
 
