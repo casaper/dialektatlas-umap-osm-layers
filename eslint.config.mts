@@ -7,7 +7,9 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 const ignores = [
-  ...['node_modules', 'dist', '_archive', 'sig', '.trunk'].map(d => `**/${d}/*`),
+  ...['node_modules', 'dist', '_archive', 'sig', '.trunk'].map(
+    d => `**/${d}/*`
+  ),
   ...['.rubocop*.yml'].map(f => `**/${f}`),
 ];
 
