@@ -1,6 +1,6 @@
 import { join, resolve } from 'path';
 
-export const projectRoot = resolve(__dirname, '../../');
+export const projectRoot = resolve(__dirname, '../');
 
 export const wordMappingCsvsDir = join(
   projectRoot,

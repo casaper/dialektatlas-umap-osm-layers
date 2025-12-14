@@ -1,6 +1,6 @@
 import { exec as cpExec, ExecOptionsWithStringEncoding } from 'child_process';
 
-import { projectRoot } from '../project-paths';
+import { projectRoot } from '../../paths';
 import { isArray } from '../typecheck';
 
 export const exec = (
