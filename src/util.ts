@@ -1,6 +1,6 @@
 import { program } from '@commander-js/extra-typings';
 
-import { transformCsvsCommand } from './commands';
+import { transformCsvsCommand, wordCsvMapCommand } from './commands';
 
 program
   .name('util')
@@ -9,4 +9,5 @@ program
     'Utility commands to convert Dialektatlas CSV and geo data to umap layers'
   )
   .addCommand(transformCsvsCommand)
+  .addCommand(wordCsvMapCommand)
   .parse();

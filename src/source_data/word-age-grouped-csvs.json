@@ -1,0 +1,1376 @@
+{
+  "zwiebel": {
+    "word": "Zwiebel",
+    "wordKey": "zwiebel",
+    "jung": "zwiebel_3_jung_QGIS.csv",
+    "sds": "zwiebel_1_sds_QGIS.csv",
+    "alt": "zwiebel_2_alt_QGIS.csv"
+  },
+  "zweiMänner": {
+    "word": "zwei Männer",
+    "wordKey": "zweiMänner",
+    "jung": "zweiMänner_3_jung_QGIS.csv",
+    "sds": "zweiMänner_1_sds_QGIS.csv",
+    "alt": "zweiMänner_2_alt_QGIS.csv"
+  },
+  "zweezwoozwoei": {
+    "word": "zwee zwoo zwoei",
+    "wordKey": "zweezwoozwoei",
+    "jung": "zweezwoozwoei_3_jung_QGIS.csv",
+    "sds": "zweezwoozwoei_1_sds_QGIS.csv",
+    "alt": "zweezwoozwoei_2_alt_QGIS.csv"
+  },
+  "zins": {
+    "word": "Zins",
+    "wordKey": "zins",
+    "jung": "zins_3_jung_QGIS.csv",
+    "sds": "zins_1_sds_QGIS.csv",
+    "alt": "zins_2_alt_QGIS.csv"
+  },
+  "zaun": {
+    "word": "Zaun",
+    "wordKey": "zaun",
+    "jung": "zaun_3_jung_QGIS.csv",
+    "sds": "zaun_1_sds_QGIS.csv",
+    "alt": "zaun_2_alt_QGIS.csv"
+  },
+  "zahlwortZwei": {
+    "word": "Zahlwort Zwei",
+    "wordKey": "zahlwortZwei",
+    "jung": "zahlwortZwei_3_jung_QGIS.csv",
+    "sds": "zahlwortZwei_1_sds_QGIS.csv",
+    "alt": "zahlwortZwei_2_alt_QGIS.csv"
+  },
+  "wespeUmlaut": {
+    "word": "Wespe Umlaut",
+    "wordKey": "wespeUmlaut",
+    "jung": "wespeUmlaut_3_jung_QGIS.csv",
+    "sds": "wespeUmlaut_1_sds_QGIS.csv",
+    "alt": "wespeUmlaut_2_alt_QGIS.csv"
+  },
+  "wange": {
+    "word": "Wange",
+    "wordKey": "wange",
+    "jung": "wange_3_jung_QGIS.csv",
+    "sds": "wange_1_sds_QGIS.csv",
+    "alt": "wange_2_alt_QGIS.csv"
+  },
+  "walter_benjamin": {
+    "word": "Walter Benjamin",
+    "wordKey": "walter_benjamin",
+    "jung": "walter_benjamin_3_jung_QGIS.csv",
+    "alt": "walter_benjamin_2_alt_QGIS.csv"
+  },
+  "walterBenjamin": {
+    "word": "Walter Benjamin",
+    "wordKey": "walterBenjamin",
+    "jung": "walterBenjamin_3_jung_QGIS.csv",
+    "alt": "walterBenjamin_2_alt_QGIS.csv"
+  },
+  "vot": {
+    "word": "vot",
+    "wordKey": "vot",
+    "jung": "vot_3_jung_QGIS.csv",
+    "alt": "vot_2_alt_QGIS.csv"
+  },
+  "vokalEis": {
+    "word": "Vokal Eis",
+    "wordKey": "vokalEis",
+    "jung": "vokalEis_3_jung_QGIS.csv",
+    "sds": "vokalEis_1_sds_QGIS.csv",
+    "alt": "vokalEis_2_alt_QGIS.csv"
+  },
+  "vier": {
+    "word": "vier",
+    "wordKey": "vier",
+    "jung": "vier_3_jung_QGIS.csv",
+    "sds": "vier_1_sds_QGIS.csv",
+    "alt": "vier_2_alt_QGIS.csv"
+  },
+  "verabschiedenBank": {
+    "word": "verabschieden Bank",
+    "wordKey": "verabschiedenBank",
+    "jung": "verabschiedenBank_3_jung_QGIS.csv",
+    "alt": "verabschiedenBank_2_alt_QGIS.csv"
+  },
+  "urinieren": {
+    "word": "urinieren",
+    "wordKey": "urinieren",
+    "jung": "urinieren_3_jung_QGIS.csv",
+    "alt": "urinieren_2_alt_QGIS.csv"
+  },
+  "umlautRücken": {
+    "word": "umlaut Rücken",
+    "wordKey": "umlautRücken",
+    "jung": "umlautRücken_3_jung_QGIS.csv",
+    "sds": "umlautRücken_1_sds_QGIS.csv",
+    "alt": "umlautRücken_2_alt_QGIS.csv"
+  },
+  "umlautMücke": {
+    "word": "umlaut Mücke",
+    "wordKey": "umlautMücke",
+    "jung": "umlautMücke_3_jung_QGIS.csv",
+    "sds": "umlautMücke_1_sds_QGIS.csv",
+    "alt": "umlautMücke_2_alt_QGIS.csv"
+  },
+  "umlautDrücken": {
+    "word": "umlaut Drücken",
+    "wordKey": "umlautDrücken",
+    "jung": "umlautDrücken_3_jung_QGIS.csv",
+    "sds": "umlautDrücken_1_sds_QGIS.csv",
+    "alt": "umlautDrücken_2_alt_QGIS.csv"
+  },
+  "umlautBrücke": {
+    "word": "umlaut Brücke",
+    "wordKey": "umlautBrücke",
+    "jung": "umlautBrücke_3_jung_QGIS.csv",
+    "sds": "umlautBrücke_1_sds_QGIS.csv",
+    "alt": "umlautBrücke_2_alt_QGIS.csv"
+  },
+  "tunnel": {
+    "word": "Tunnel",
+    "wordKey": "tunnel",
+    "jung": "tunnel_3_jung_QGIS.csv",
+    "alt": "tunnel_2_alt_QGIS.csv"
+  },
+  "trinken": {
+    "word": "trinken",
+    "wordKey": "trinken",
+    "jung": "trinken_3_jung_QGIS.csv",
+    "sds": "trinken_1_sds_QGIS.csv",
+    "alt": "trinken_2_alt_QGIS.csv"
+  },
+  "treppe": {
+    "word": "Treppe",
+    "wordKey": "treppe",
+    "jung": "treppe_3_jung_QGIS.csv",
+    "alt": "treppe_2_alt_QGIS.csv"
+  },
+  "tragenInfinitivPartizip": {
+    "word": "tragen Infinitiv Partizip",
+    "wordKey": "tragenInfinitivPartizip",
+    "jung": "tragenInfinitivPartizip_3_jung_QGIS.csv",
+    "sds": "tragenInfinitivPartizip_1_sds_QGIS.csv",
+    "alt": "tragenInfinitivPartizip_2_alt_QGIS.csv"
+  },
+  "tief": {
+    "word": "tief",
+    "wordKey": "tief",
+    "jung": "tief_3_jung_QGIS.csv",
+    "sds": "tief_1_sds_QGIS.csv",
+    "alt": "tief_2_alt_QGIS.csv"
+  },
+  "teller": {
+    "word": "Teller",
+    "wordKey": "teller",
+    "jung": "teller_3_jung_QGIS.csv",
+    "sds": "teller_1_sds_QGIS.csv",
+    "alt": "teller_2_alt_QGIS.csv"
+  },
+  "telefongruss": {
+    "word": "Telefongruss",
+    "wordKey": "telefongruss",
+    "jung": "telefongruss_3_jung_QGIS.csv",
+    "alt": "telefongruss_2_alt_QGIS.csv"
+  },
+  "tee": {
+    "word": "Tee",
+    "wordKey": "tee",
+    "jung": "tee_3_jung_QGIS.csv",
+    "alt": "tee_2_alt_QGIS.csv"
+  },
+  "taschentuch": {
+    "word": "Taschentuch",
+    "wordKey": "taschentuch",
+    "jung": "taschentuch_3_jung_QGIS.csv",
+    "sds": "taschentuch_1_sds_QGIS.csv",
+    "alt": "taschentuch_2_alt_QGIS.csv"
+  },
+  "tanne": {
+    "word": "Tanne",
+    "wordKey": "tanne",
+    "jung": "tanne_3_jung_QGIS.csv",
+    "sds": "tanne_1_sds_QGIS.csv",
+    "alt": "tanne_2_alt_QGIS.csv"
+  },
+  "tanneSchwa": {
+    "word": "Tanne Schwa",
+    "wordKey": "tanneSchwa",
+    "jung": "tanneSchwa_3_jung_QGIS.csv",
+    "sds": "tanneSchwa_1_sds_QGIS.csv",
+    "alt": "tanneSchwa_2_alt_QGIS.csv"
+  },
+  "tannePlural": {
+    "word": "Tanne Plural",
+    "wordKey": "tannePlural",
+    "jung": "tannePlural_3_jung_QGIS.csv",
+    "sds": "tannePlural_1_sds_QGIS.csv",
+    "alt": "tannePlural_2_alt_QGIS.csv"
+  },
+  "tag": {
+    "word": "Tag",
+    "wordKey": "tag",
+    "jung": "tag_3_jung_QGIS.csv",
+    "sds": "tag_1_sds_QGIS.csv",
+    "alt": "tag_2_alt_QGIS.csv"
+  },
+  "summi": {
+    "word": "summi",
+    "wordKey": "summi",
+    "jung": "summi_3_jung_QGIS.csv",
+    "sds": "summi_1_sds_QGIS.csv",
+    "alt": "summi_2_alt_QGIS.csv"
+  },
+  "spätAdjektivAdverbKombi": {
+    "word": "spät Adjektiv Adverb Kombi",
+    "wordKey": "spätAdjektivAdverbKombi",
+    "jung": "spätAdjektivAdverbKombi_3_jung_QGIS.csv",
+    "sds": "spätAdjektivAdverbKombi_1_sds_QGIS.csv",
+    "alt": "spätAdjektivAdverbKombi_2_alt_QGIS.csv"
+  },
+  "spitznamenLukasName": {
+    "word": "Spitznamen: Lukas Name",
+    "wordKey": "spitznamenLukasName",
+    "jung": "spitznamenLukasName_3_jung_QGIS.csv",
+    "alt": "spitznamenLukasName_2_alt_QGIS.csv"
+  },
+  "spitznamenLukasGenus": {
+    "word": "Spitznamen: Lukas Genus",
+    "wordKey": "spitznamenLukasGenus",
+    "jung": "spitznamenLukasGenus_3_jung_QGIS.csv",
+    "alt": "spitznamenLukasGenus_2_alt_QGIS.csv"
+  },
+  "spitznamenAnnaName": {
+    "word": "Spitznamen: Anna Name",
+    "wordKey": "spitznamenAnnaName",
+    "jung": "spitznamenAnnaName_3_jung_QGIS.csv",
+    "alt": "spitznamenAnnaName_2_alt_QGIS.csv"
+  },
+  "spitznamenAnnaGenus": {
+    "word": "Spitznamen: Anna Genus",
+    "wordKey": "spitznamenAnnaGenus",
+    "jung": "spitznamenAnnaGenus_3_jung_QGIS.csv",
+    "alt": "spitznamenAnnaGenus_2_alt_QGIS.csv"
+  },
+  "speck": {
+    "word": "Speck",
+    "wordKey": "speck",
+    "jung": "speck_3_jung_QGIS.csv",
+    "sds": "speck_1_sds_QGIS.csv",
+    "alt": "speck_2_alt_QGIS.csv"
+  },
+  "sommersprossen": {
+    "word": "Sommersprossen",
+    "wordKey": "sommersprossen",
+    "jung": "sommersprossen_3_jung_QGIS.csv",
+    "sds": "sommersprossen_1_sds_QGIS.csv",
+    "alt": "sommersprossen_2_alt_QGIS.csv"
+  },
+  "sofa": {
+    "word": "Sofa",
+    "wordKey": "sofa",
+    "jung": "sofa_3_jung_QGIS.csv",
+    "sds": "sofa_1_sds_QGIS.csv",
+    "alt": "sofa_2_alt_QGIS.csv"
+  },
+  "seinPlural": {
+    "word": "sein Plural",
+    "wordKey": "seinPlural",
+    "jung": "seinPlural_3_jung_QGIS.csv",
+    "sds": "seinPlural_1_sds_QGIS.csv",
+    "alt": "seinPlural_2_alt_QGIS.csv"
+  },
+  "sehenKonjunktiv": {
+    "word": "sehen Konjunktiv",
+    "wordKey": "sehenKonjunktiv",
+    "jung": "sehenKonjunktiv_3_jung_QGIS.csv",
+    "sds": "sehenKonjunktiv_1_sds_QGIS.csv",
+    "alt": "sehenKonjunktiv_2_alt_QGIS.csv"
+  },
+  "sechs": {
+    "word": "sechs",
+    "wordKey": "sechs",
+    "jung": "sechs_3_jung_QGIS.csv",
+    "sds": "sechs_1_sds_QGIS.csv",
+    "alt": "sechs_2_alt_QGIS.csv"
+  },
+  "schürze": {
+    "word": "Schürze",
+    "wordKey": "schürze",
+    "jung": "schürze_3_jung_QGIS.csv",
+    "sds": "schürze_1_sds_QGIS.csv",
+    "alt": "schürze_2_alt_QGIS.csv"
+  },
+  "schwester": {
+    "word": "Schwester",
+    "wordKey": "schwester",
+    "jung": "schwester_3_jung_QGIS.csv",
+    "sds": "schwester_1_sds_QGIS.csv",
+    "alt": "schwester_2_alt_QGIS.csv"
+  },
+  "schublade": {
+    "word": "Schublade",
+    "wordKey": "schublade",
+    "jung": "schublade_3_jung_QGIS.csv",
+    "sds": "schublade_1_sds_QGIS.csv",
+    "alt": "schublade_2_alt_QGIS.csv"
+  },
+  "schoggistängeli": {
+    "word": "Schoggistängeli",
+    "wordKey": "schoggistängeli",
+    "jung": "schoggistängeli_3_jung_QGIS.csv",
+    "alt": "schoggistängeli_2_alt_QGIS.csv"
+  },
+  "schoggi_genus": {
+    "word": "Schoggi Genus",
+    "wordKey": "schoggi_genus",
+    "jung": "schoggi_genus_3_jung_QGIS.csv",
+    "alt": "schoggi_genus_2_alt_QGIS.csv"
+  },
+  "schoggiLexem": {
+    "word": "Schoggi Lexem",
+    "wordKey": "schoggiLexem",
+    "jung": "schoggiLexem_3_jung_QGIS.csv",
+    "alt": "schoggiLexem_2_alt_QGIS.csv"
+  },
+  "schoggiGenus": {
+    "word": "Schoggi Genus",
+    "wordKey": "schoggiGenus",
+    "jung": "schoggiGenus_3_jung_QGIS.csv",
+    "alt": "schoggiGenus_2_alt_QGIS.csv"
+  },
+  "schnupfen": {
+    "word": "Schnupfen",
+    "wordKey": "schnupfen",
+    "jung": "schnupfen_3_jung_QGIS.csv",
+    "sds": "schnupfen_1_sds_QGIS.csv",
+    "alt": "schnupfen_2_alt_QGIS.csv"
+  },
+  "schneien": {
+    "word": "Schneien",
+    "wordKey": "schneien",
+    "jung": "schneien_3_jung_QGIS.csv",
+    "sds": "schneien_1_sds_QGIS.csv",
+    "alt": "schneien_2_alt_QGIS.csv"
+  },
+  "schnee": {
+    "word": "Schnee",
+    "wordKey": "schnee",
+    "jung": "schnee_3_jung_QGIS.csv",
+    "sds": "schnee_1_sds_QGIS.csv",
+    "alt": "schnee_2_alt_QGIS.csv"
+  },
+  "schmetterling": {
+    "word": "Schmetterling",
+    "wordKey": "schmetterling",
+    "jung": "schmetterling_3_jung_QGIS.csv",
+    "sds": "schmetterling_1_sds_QGIS.csv",
+    "alt": "schmetterling_2_alt_QGIS.csv"
+  },
+  "schluckauf": {
+    "word": "Schluckauf",
+    "wordKey": "schluckauf",
+    "jung": "schluckauf_3_jung_QGIS.csv",
+    "sds": "schluckauf_1_sds_QGIS.csv",
+    "alt": "schluckauf_2_alt_QGIS.csv"
+  },
+  "schlittschuhlaufen": {
+    "word": "Schlittschuhlaufen",
+    "wordKey": "schlittschuhlaufen",
+    "jung": "schlittschuhlaufen_3_jung_QGIS.csv",
+    "sds": "schlittschuhlaufen_1_sds_QGIS.csv",
+    "alt": "schlittschuhlaufen_2_alt_QGIS.csv"
+  },
+  "schlitten": {
+    "word": "Schlitten",
+    "wordKey": "schlitten",
+    "jung": "schlitten_3_jung_QGIS.csv",
+    "sds": "schlitten_1_sds_QGIS.csv",
+    "alt": "schlitten_2_alt_QGIS.csv"
+  },
+  "schaukeln": {
+    "word": "Schaukeln",
+    "wordKey": "schaukeln",
+    "jung": "schaukeln_3_jung_QGIS.csv",
+    "sds": "schaukeln_1_sds_QGIS.csv",
+    "alt": "schaukeln_2_alt_QGIS.csv"
+  },
+  "schau": {
+    "word": "Schau",
+    "wordKey": "schau",
+    "jung": "schau_3_jung_QGIS.csv",
+    "sds": "schau_1_sds_QGIS.csv",
+    "alt": "schau_2_alt_QGIS.csv"
+  },
+  "sagenKonjunktiv": {
+    "word": "Sagen Konjunktiv",
+    "wordKey": "sagenKonjunktiv",
+    "jung": "sagenKonjunktiv_3_jung_QGIS.csv",
+    "sds": "sagenKonjunktiv_1_sds_QGIS.csv",
+    "alt": "sagenKonjunktiv_2_alt_QGIS.csv"
+  },
+  "rösti": {
+    "word": "Rösti",
+    "wordKey": "rösti",
+    "jung": "rösti_3_jung_QGIS.csv",
+    "sds": "rösti_1_sds_QGIS.csv",
+    "alt": "rösti_2_alt_QGIS.csv"
+  },
+  "regenschirm": {
+    "word": "Regenschirm",
+    "wordKey": "regenschirm",
+    "jung": "regenschirm_3_jung_QGIS.csv",
+    "sds": "regenschirm_1_sds_QGIS.csv",
+    "alt": "regenschirm_2_alt_QGIS.csv"
+  },
+  "rande": {
+    "word": "Rande",
+    "wordKey": "rande",
+    "jung": "rande_3_jung_QGIS.csv",
+    "sds": "rande_1_sds_QGIS.csv",
+    "alt": "rande_2_alt_QGIS.csv"
+  },
+  "rad": {
+    "word": "Rad",
+    "wordKey": "rad",
+    "jung": "rad_3_jung_QGIS.csv",
+    "sds": "rad_1_sds_QGIS.csv",
+    "alt": "rad_2_alt_QGIS.csv"
+  },
+  "quetschfleck": {
+    "word": "Quetschfleck",
+    "wordKey": "quetschfleck",
+    "jung": "quetschfleck_3_jung_QGIS.csv",
+    "sds": "quetschfleck_1_sds_QGIS.csv",
+    "alt": "quetschfleck_2_alt_QGIS.csv"
+  },
+  "quetschfleckPhonetisch": {
+    "word": "Quetschfleck Phonetisch",
+    "wordKey": "quetschfleckPhonetisch",
+    "jung": "quetschfleckPhonetisch_3_jung_QGIS.csv",
+    "sds": "quetschfleckPhonetisch_1_sds_QGIS.csv",
+    "alt": "quetschfleckPhonetisch_2_alt_QGIS.csv"
+  },
+  "puppe": {
+    "word": "Puppe",
+    "wordKey": "puppe",
+    "jung": "puppe_3_jung_QGIS.csv",
+    "sds": "puppe_1_sds_QGIS.csv",
+    "alt": "puppe_2_alt_QGIS.csv"
+  },
+  "pult": {
+    "word": "Pult",
+    "wordKey": "pult",
+    "jung": "pult_3_jung_QGIS.csv",
+    "alt": "pult_2_alt_QGIS.csv"
+  },
+  "prädadj": {
+    "word": "Prädadj",
+    "wordKey": "prädadj",
+    "jung": "prädadj_3_jung_QGIS.csv",
+    "older": "prädadj_2_older_QGIS.csv",
+    "sds": "prädadj_1_sds_QGIS.csv",
+    "alt": "prädadj_2_alt_QGIS.csv"
+  },
+  "postautoPl": {
+    "word": "Postauto Pl",
+    "wordKey": "postautoPl",
+    "jung": "postautoPl_3_jung_QGIS.csv",
+    "alt": "postautoPl_2_alt_QGIS.csv"
+  },
+  "plaudern": {
+    "word": "Plaudern",
+    "wordKey": "plaudern",
+    "jung": "plaudern_3_jung_QGIS.csv",
+    "alt": "plaudern_2_alt_QGIS.csv"
+  },
+  "pfütze": {
+    "word": "Pfütze",
+    "wordKey": "pfütze",
+    "jung": "pfütze_3_jung_QGIS.csv",
+    "sds": "pfütze_1_sds_QGIS.csv",
+    "alt": "pfütze_2_alt_QGIS.csv"
+  },
+  "pferd": {
+    "word": "Pferd",
+    "wordKey": "pferd",
+    "jung": "pferd_3_jung_QGIS.csv",
+    "sds": "pferd_1_sds_QGIS.csv",
+    "alt": "pferd_2_alt_QGIS.csv"
+  },
+  "ortsnetz": {
+    "word": "Ortsnetz",
+    "wordKey": "ortsnetz",
+    "jung": "ortsnetz_3_jung_QGIS.csv"
+  },
+  "ohrfeige": {
+    "word": "Ohrfeige",
+    "wordKey": "ohrfeige",
+    "jung": "ohrfeige_3_jung_QGIS.csv",
+    "alt": "ohrfeige_2_alt_QGIS.csv"
+  },
+  "nichts": {
+    "word": "Nichts",
+    "wordKey": "nichts",
+    "jung": "nichts_3_jung_QGIS.csv",
+    "sds": "nichts_1_sds_QGIS.csv",
+    "alt": "nichts_2_alt_QGIS.csv"
+  },
+  "neu": {
+    "word": "Neu",
+    "wordKey": "neu",
+    "jung": "neu_3_jung_QGIS.csv",
+    "sds": "neu_1_sds_QGIS.csv",
+    "alt": "neu_2_alt_QGIS.csv"
+  },
+  "ndVelarisierungFinden": {
+    "word": "nd Velarisierung Finden",
+    "wordKey": "ndVelarisierungFinden",
+    "jung": "ndVelarisierungFinden_3_jung_QGIS.csv",
+    "sds": "ndVelarisierungFinden_1_sds_QGIS.csv",
+    "alt": "ndVelarisierungFinden_2_alt_QGIS.csv"
+  },
+  "nase": {
+    "word": "Nase",
+    "wordKey": "nase",
+    "jung": "nase_3_jung_QGIS.csv",
+    "sds": "nase_1_sds_QGIS.csv",
+    "alt": "nase_2_alt_QGIS.csv"
+  },
+  "nachparis": {
+    "word": "Nach Paris",
+    "wordKey": "nachparis",
+    "jung": "nachparis_3_jung_QGIS.csv",
+    "alt": "nachparis_2_alt_QGIS.csv"
+  },
+  "mäuse": {
+    "word": "Mäuse",
+    "wordKey": "mäuse",
+    "jung": "mäuse_3_jung_QGIS.csv",
+    "sds": "mäuse_1_sds_QGIS.csv",
+    "alt": "mäuse_2_alt_QGIS.csv"
+  },
+  "murmel": {
+    "word": "Murmel",
+    "wordKey": "murmel",
+    "jung": "murmel_3_jung_QGIS.csv",
+    "alt": "murmel_2_alt_QGIS.csv"
+  },
+  "mobility": {
+    "word": "Mobility",
+    "wordKey": "mobility",
+    "jung": "mobility_3_jung_QGIS.csv",
+    "alt": "mobility_2_alt_QGIS.csv"
+  },
+  "mirjamsHut": {
+    "word": "Mirjams Hut",
+    "wordKey": "mirjamsHut",
+    "jung": "mirjamsHut_3_jung_QGIS.csv",
+    "alt": "mirjamsHut_2_alt_QGIS.csv"
+  },
+  "militär": {
+    "word": "Militär",
+    "wordKey": "militär",
+    "jung": "militär_3_jung_QGIS.csv",
+    "alt": "militär_2_alt_QGIS.csv"
+  },
+  "migros": {
+    "word": "Migros",
+    "wordKey": "migros",
+    "jung": "migros_3_jung_QGIS.csv",
+    "alt": "migros_2_alt_QGIS.csv"
+  },
+  "michMir": {
+    "word": "mich Mir",
+    "wordKey": "michMir",
+    "jung": "michMir_3_jung_QGIS.csv",
+    "alt": "michMir_2_alt_QGIS.csv"
+  },
+  "meineCousine": {
+    "word": "meine Cousine",
+    "wordKey": "meineCousine",
+    "jung": "meineCousine_3_jung_QGIS.csv",
+    "sds": "meineCousine_1_sds_QGIS.csv",
+    "alt": "meineCousine_2_alt_QGIS.csv"
+  },
+  "maus": {
+    "word": "Maus",
+    "wordKey": "maus",
+    "jung": "maus_3_jung_QGIS.csv",
+    "sds": "maus_1_sds_QGIS.csv",
+    "alt": "maus_2_alt_QGIS.csv"
+  },
+  "maschine": {
+    "word": "Maschine",
+    "wordKey": "maschine",
+    "jung": "maschine_3_jung_QGIS.csv",
+    "sds": "maschine_1_sds_QGIS.csv",
+    "alt": "maschine_2_alt_QGIS.csv"
+  },
+  "löwenzahn": {
+    "word": "Löwenzahn",
+    "wordKey": "löwenzahn",
+    "jung": "löwenzahn_3_jung_QGIS.csv",
+    "sds": "löwenzahn_1_sds_QGIS.csv",
+    "alt": "löwenzahn_2_alt_QGIS.csv"
+  },
+  "lokalpräpositionNachUf": {
+    "word": "lokalpräposition Nach Uf",
+    "wordKey": "lokalpräpositionNachUf",
+    "jung": "lokalpräpositionNachUf_3_jung_QGIS.csv",
+    "alt": "lokalpräpositionNachUf_2_alt_QGIS.csv"
+  },
+  "lokaladverbInZ": {
+    "word": "lokaladverb In Z",
+    "wordKey": "lokaladverbInZ",
+    "jung": "lokaladverbInZ_3_jung_QGIS.csv",
+    "alt": "lokaladverbInZ_2_alt_QGIS.csv"
+  },
+  "lassIhnGehen": {
+    "word": "lass ihn gehen",
+    "wordKey": "lassIhnGehen",
+    "jung": "lassIhnGehen_3_jung_QGIS.csv",
+    "sds": "lassIhnGehen_1_sds_QGIS.csv",
+    "alt": "lassIhnGehen_2_alt_QGIS.csv"
+  },
+  "lVokalisierungSträäl": {
+    "word": "l Vokalisierung Strääl",
+    "wordKey": "lVokalisierungSträäl",
+    "jung": "lVokalisierungSträäl_3_jung_QGIS.csv",
+    "sds": "lVokalisierungSträäl_1_sds_QGIS.csv",
+    "alt": "lVokalisierungSträäl_2_alt_QGIS.csv"
+  },
+  "lVokalisierungSohle": {
+    "word": "l Vokalisierung Sohle",
+    "wordKey": "lVokalisierungSohle",
+    "jung": "lVokalisierungSohle_3_jung_QGIS.csv",
+    "sds": "lVokalisierungSohle_1_sds_QGIS.csv",
+    "alt": "lVokalisierungSohle_2_alt_QGIS.csv"
+  },
+  "lVokalisierungSalz": {
+    "word": "l Vokalisierung Salz",
+    "wordKey": "lVokalisierungSalz",
+    "jung": "lVokalisierungSalz_3_jung_QGIS.csv",
+    "sds": "lVokalisierungSalz_1_sds_QGIS.csv",
+    "alt": "lVokalisierungSalz_2_alt_QGIS.csv"
+  },
+  "lVokalisierungHimmel": {
+    "word": "l Vokalisierung Himmel",
+    "wordKey": "lVokalisierungHimmel",
+    "jung": "lVokalisierungHimmel_3_jung_QGIS.csv",
+    "sds": "lVokalisierungHimmel_1_sds_QGIS.csv",
+    "alt": "lVokalisierungHimmel_2_alt_QGIS.csv"
+  },
+  "lVokalisierungFolgen": {
+    "word": "l Vokalisierung Folgen",
+    "wordKey": "lVokalisierungFolgen",
+    "jung": "lVokalisierungFolgen_3_jung_QGIS.csv",
+    "sds": "lVokalisierungFolgen_1_sds_QGIS.csv",
+    "alt": "lVokalisierungFolgen_2_alt_QGIS.csv"
+  },
+  "küken": {
+    "word": "Küken",
+    "wordKey": "küken",
+    "jung": "küken_3_jung_QGIS.csv",
+    "sds": "küken_1_sds_QGIS.csv",
+    "alt": "küken_2_alt_QGIS.csv"
+  },
+  "küche": {
+    "word": "Küche",
+    "wordKey": "küche",
+    "jung": "küche_3_jung_QGIS.csv",
+    "sds": "küche_1_sds_QGIS.csv",
+    "alt": "küche_2_alt_QGIS.csv"
+  },
+  "käsekrusteFondue": {
+    "word": "Käsekruste Fondue",
+    "wordKey": "käsekrusteFondue",
+    "jung": "käsekrusteFondue_3_jung_QGIS.csv",
+    "alt": "käsekrusteFondue_2_alt_QGIS.csv"
+  },
+  "käse": {
+    "word": "Käse",
+    "wordKey": "käse",
+    "jung": "käse_3_jung_QGIS.csv",
+    "sds": "käse_1_sds_QGIS.csv",
+    "alt": "käse_2_alt_QGIS.csv"
+  },
+  "kuss": {
+    "word": "Kuss",
+    "wordKey": "kuss",
+    "jung": "kuss_3_jung_QGIS.csv",
+    "sds": "kuss_1_sds_QGIS.csv",
+    "alt": "kuss_2_alt_QGIS.csv"
+  },
+  "kosename": {
+    "word": "Kosename",
+    "wordKey": "kosename",
+    "jung": "kosename_3_jung_QGIS.csv",
+    "alt": "kosename_2_alt_QGIS.csv"
+  },
+  "konsonantEis": {
+    "word": "Konsonant Eis",
+    "wordKey": "konsonantEis",
+    "jung": "konsonantEis_3_jung_QGIS.csv",
+    "sds": "konsonantEis_1_sds_QGIS.csv",
+    "alt": "konsonantEis_2_alt_QGIS.csv"
+  },
+  "kondukteur": {
+    "word": "Kondukteur",
+    "wordKey": "kondukteur",
+    "jung": "kondukteur_3_jung_QGIS.csv",
+    "alt": "kondukteur_2_alt_QGIS.csv"
+  },
+  "kommtRegnen": {
+    "word": "kommt Regnen",
+    "wordKey": "kommtRegnen",
+    "jung": "kommtRegnen_3_jung_QGIS.csv",
+    "sds": "kommtRegnen_1_sds_QGIS.csv",
+    "alt": "kommtRegnen_2_alt_QGIS.csv"
+  },
+  "kommenWerden": {
+    "word": "kommen Werden",
+    "wordKey": "kommenWerden",
+    "jung": "kommenWerden_3_jung_QGIS.csv",
+    "sds": "kommenWerden_1_sds_QGIS.csv",
+    "alt": "kommenWerden_2_alt_QGIS.csv"
+  },
+  "kommenPlural": {
+    "word": "kommen Plural",
+    "wordKey": "kommenPlural",
+    "jung": "kommenPlural_3_jung_QGIS.csv",
+    "sds": "kommenPlural_1_sds_QGIS.csv",
+    "alt": "kommenPlural_2_alt_QGIS.csv"
+  },
+  "kommen2SG": {
+    "word": "kommen 2 SG",
+    "wordKey": "kommen2SG",
+    "jung": "kommen2SG_3_jung_QGIS.csv",
+    "sds": "kommen2SG_1_sds_QGIS.csv",
+    "alt": "kommen2SG_2_alt_QGIS.csv"
+  },
+  "kommen1SG": {
+    "word": "kommen 1 SG",
+    "wordKey": "kommen1SG",
+    "jung": "kommen1SG_3_jung_QGIS.csv",
+    "sds": "kommen1SG_1_sds_QGIS.csv",
+    "alt": "kommen1SG_2_alt_QGIS.csv"
+  },
+  "kneifen": {
+    "word": "kneifen",
+    "wordKey": "kneifen",
+    "jung": "kneifen_3_jung_QGIS.csv",
+    "sds": "kneifen_1_sds_QGIS.csv",
+    "alt": "kneifen_2_alt_QGIS.csv"
+  },
+  "kiosk": {
+    "word": "Kiosk",
+    "wordKey": "kiosk",
+    "jung": "kiosk_3_jung_QGIS.csv",
+    "alt": "kiosk_2_alt_QGIS.csv"
+  },
+  "kind": {
+    "word": "Kind",
+    "wordKey": "kind",
+    "jung": "kind_3_jung_QGIS.csv",
+    "sds": "kind_1_sds_QGIS.csv",
+    "alt": "kind_2_alt_QGIS.csv"
+  },
+  "kater": {
+    "word": "Kater",
+    "wordKey": "kater",
+    "jung": "kater_3_jung_QGIS.csv",
+    "sds": "kater_1_sds_QGIS.csv",
+    "alt": "kater_2_alt_QGIS.csv"
+  },
+  "kartoffel": {
+    "word": "Kartoffel",
+    "wordKey": "kartoffel",
+    "jung": "kartoffel_3_jung_QGIS.csv",
+    "sds": "kartoffel_1_sds_QGIS.csv",
+    "alt": "kartoffel_2_alt_QGIS.csv"
+  },
+  "kaese": {
+    "word": "Käse",
+    "wordKey": "kaese",
+    "jung": "kaese_3_jung_QGIS.csv",
+    "alt": "kaese_2_alt_QGIS.csv"
+  },
+  "jemand": {
+    "word": "jemand",
+    "wordKey": "jemand",
+    "jung": "jemand_3_jung_QGIS.csv",
+    "sds": "jemand_1_sds_QGIS.csv",
+    "alt": "jemand_2_alt_QGIS.csv"
+  },
+  "ich": {
+    "word": "ich",
+    "wordKey": "ich",
+    "jung": "ich_3_jung_QGIS.csv",
+    "sds": "ich_1_sds_QGIS.csv",
+    "alt": "ich_2_alt_QGIS.csv"
+  },
+  "hund": {
+    "word": "Hund",
+    "wordKey": "hund",
+    "jung": "hund_3_jung_QGIS.csv",
+    "sds": "hund_1_sds_QGIS.csv",
+    "alt": "hund_2_alt_QGIS.csv"
+  },
+  "hundDiminuitiv": {
+    "word": "Hund Diminuitiv",
+    "wordKey": "hundDiminuitiv",
+    "jung": "hundDiminuitiv_3_jung_QGIS.csv",
+    "sds": "hundDiminuitiv_1_sds_QGIS.csv",
+    "alt": "hundDiminuitiv_2_alt_QGIS.csv"
+  },
+  "hochzeit": {
+    "word": "Hochzeit",
+    "wordKey": "hochzeit",
+    "jung": "hochzeit_3_jung_QGIS.csv",
+    "sds": "hochzeit_1_sds_QGIS.csv",
+    "alt": "hochzeit_2_alt_QGIS.csv"
+  },
+  "hinauf": {
+    "word": "Hinauf",
+    "wordKey": "hinauf",
+    "jung": "hinauf_3_jung_QGIS.csv",
+    "sds": "hinauf_1_sds_QGIS.csv",
+    "alt": "hinauf_2_alt_QGIS.csv"
+  },
+  "hier": {
+    "word": "hier",
+    "wordKey": "hier",
+    "jung": "hier_3_jung_QGIS.csv",
+    "sds": "hier_1_sds_QGIS.csv",
+    "alt": "hier_2_alt_QGIS.csv"
+  },
+  "heuschrecke": {
+    "word": "Heuschrecke",
+    "wordKey": "heuschrecke",
+    "jung": "heuschrecke_3_jung_QGIS.csv",
+    "sds": "heuschrecke_1_sds_QGIS.csv",
+    "alt": "heuschrecke_2_alt_QGIS.csv"
+  },
+  "heuen": {
+    "word": "Heuen",
+    "wordKey": "heuen",
+    "jung": "heuen_3_jung_QGIS.csv",
+    "sds": "heuen_1_sds_QGIS.csv",
+    "alt": "heuen_2_alt_QGIS.csv"
+  },
+  "herunter": {
+    "word": "Herunter",
+    "wordKey": "herunter",
+    "jung": "herunter_3_jung_QGIS.csv",
+    "sds": "herunter_1_sds_QGIS.csv",
+    "alt": "herunter_2_alt_QGIS.csv"
+  },
+  "herein": {
+    "word": "herein",
+    "wordKey": "herein",
+    "jung": "herein_3_jung_QGIS.csv",
+    "sds": "herein_1_sds_QGIS.csv",
+    "alt": "herein_2_alt_QGIS.csv"
+  },
+  "herauf": {
+    "word": "herauf",
+    "wordKey": "herauf",
+    "jung": "herauf_3_jung_QGIS.csv",
+    "sds": "herauf_1_sds_QGIS.csv",
+    "alt": "herauf_2_alt_QGIS.csv"
+  },
+  "heraufHinauf": {
+    "word": "herauf Hinauf",
+    "wordKey": "heraufHinauf",
+    "jung": "heraufHinauf_3_jung_QGIS.csv",
+    "sds": "heraufHinauf_1_sds_QGIS.csv",
+    "alt": "heraufHinauf_2_alt_QGIS.csv"
+  },
+  "heidelbeere": {
+    "word": "Heidelbeere",
+    "wordKey": "heidelbeere",
+    "jung": "heidelbeere_3_jung_QGIS.csv",
+    "sds": "heidelbeere_1_sds_QGIS.csv",
+    "alt": "heidelbeere_2_alt_QGIS.csv"
+  },
+  "hahn": {
+    "word": "Hahn",
+    "wordKey": "hahn",
+    "jung": "hahn_3_jung_QGIS.csv",
+    "sds": "hahn_1_sds_QGIS.csv",
+    "alt": "hahn_2_alt_QGIS.csv"
+  },
+  "habenPlural": {
+    "word": "Haben Plural",
+    "wordKey": "habenPlural",
+    "jung": "habenPlural_3_jung_QGIS.csv",
+    "sds": "habenPlural_1_sds_QGIS.csv",
+    "alt": "habenPlural_2_alt_QGIS.csv"
+  },
+  "gruss05wandern": {
+    "word": "gruss 05 Wandern",
+    "wordKey": "gruss05wandern",
+    "jung": "gruss05wandern_3_jung_QGIS.csv",
+    "alt": "gruss05wandern_2_alt_QGIS.csv"
+  },
+  "gruss04abend": {
+    "word": "gruss 04 Abend",
+    "wordKey": "gruss04abend",
+    "jung": "gruss04abend_3_jung_QGIS.csv",
+    "sds": "gruss04abend_1_sds_QGIS.csv",
+    "alt": "gruss04abend_2_alt_QGIS.csv"
+  },
+  "gruss03nami": {
+    "word": "gruss 03 Nami",
+    "wordKey": "gruss03nami",
+    "jung": "gruss03nami_3_jung_QGIS.csv",
+    "sds": "gruss03nami_1_sds_QGIS.csv",
+    "alt": "gruss03nami_2_alt_QGIS.csv"
+  },
+  "gruss02mittag": {
+    "word": "gruss 02 Mittag",
+    "wordKey": "gruss02mittag",
+    "jung": "gruss02mittag_3_jung_QGIS.csv",
+    "sds": "gruss02mittag_1_sds_QGIS.csv",
+    "alt": "gruss02mittag_2_alt_QGIS.csv"
+  },
+  "gruss01morgen": {
+    "word": "gruss 01 Morgen",
+    "wordKey": "gruss01morgen",
+    "jung": "gruss01morgen_3_jung_QGIS.csv",
+    "sds": "gruss01morgen_1_sds_QGIS.csv",
+    "alt": "gruss01morgen_2_alt_QGIS.csv"
+  },
+  "gotte": {
+    "word": "Gotte",
+    "wordKey": "gotte",
+    "jung": "gotte_3_jung_QGIS.csv",
+    "sds": "gotte_1_sds_QGIS.csv",
+    "alt": "gotte_2_alt_QGIS.csv"
+  },
+  "giesskanne": {
+    "word": "Giesskanne",
+    "wordKey": "giesskanne",
+    "jung": "giesskanne_3_jung_QGIS.csv",
+    "sds": "giesskanne_1_sds_QGIS.csv",
+    "alt": "giesskanne_2_alt_QGIS.csv"
+  },
+  "giessen": {
+    "word": "Giessen",
+    "wordKey": "giessen",
+    "jung": "giessen_3_jung_QGIS.csv",
+    "sds": "giessen_1_sds_QGIS.csv",
+    "alt": "giessen_2_alt_QGIS.csv"
+  },
+  "gewesenBin": {
+    "word": "gewesen Bin",
+    "wordKey": "gewesenBin",
+    "jung": "gewesenBin_3_jung_QGIS.csv",
+    "sds": "gewesenBin_1_sds_QGIS.csv",
+    "alt": "gewesenBin_2_alt_QGIS.csv"
+  },
+  "gern": {
+    "word": "gern",
+    "wordKey": "gern",
+    "jung": "gern_3_jung_QGIS.csv",
+    "sds": "gern_1_sds_QGIS.csv",
+    "alt": "gern_2_alt_QGIS.csv"
+  },
+  "geminateHimmel": {
+    "word": "geminate Himmel",
+    "wordKey": "geminateHimmel",
+    "jung": "geminateHimmel_3_jung_QGIS.csv",
+    "sds": "geminateHimmel_1_sds_QGIS.csv",
+    "alt": "geminateHimmel_2_alt_QGIS.csv"
+  },
+  "geiss": {
+    "word": "Geiss",
+    "wordKey": "geiss",
+    "jung": "geiss_3_jung_QGIS.csv",
+    "sds": "geiss_1_sds_QGIS.csv",
+    "alt": "geiss_2_alt_QGIS.csv"
+  },
+  "gehenLassenVergangenheit": {
+    "word": "gehen Lassen Vergangenheit",
+    "wordKey": "gehenLassenVergangenheit",
+    "jung": "gehenLassenVergangenheit_3_jung_QGIS.csv",
+    "sds": "gehenLassenVergangenheit_1_sds_QGIS.csv",
+    "alt": "gehenLassenVergangenheit_2_alt_QGIS.csv"
+  },
+  "gehen1Sg": {
+    "word": "gehen 1 Sg",
+    "wordKey": "gehen1Sg",
+    "jung": "gehen1Sg_3_jung_QGIS.csv",
+    "sds": "gehen1Sg_1_sds_QGIS.csv",
+    "alt": "gehen1Sg_2_alt_QGIS.csv"
+  },
+  "gebracht": {
+    "word": "gebracht",
+    "wordKey": "gebracht",
+    "jung": "gebracht_3_jung_QGIS.csv",
+    "sds": "gebracht_1_sds_QGIS.csv",
+    "alt": "gebracht_2_alt_QGIS.csv"
+  },
+  "ganzFlexion": {
+    "word": "ganz Flexion",
+    "wordKey": "ganzFlexion",
+    "jung": "ganzFlexion_3_jung_QGIS.csv",
+    "sds": "ganzFlexion_1_sds_QGIS.csv",
+    "alt": "ganzFlexion_2_alt_QGIS.csv"
+  },
+  "füsse": {
+    "word": "Füsse",
+    "wordKey": "füsse",
+    "jung": "füsse_3_jung_QGIS.csv",
+    "sds": "füsse_1_sds_QGIS.csv",
+    "alt": "füsse_2_alt_QGIS.csv"
+  },
+  "futur": {
+    "word": "Futur",
+    "wordKey": "futur",
+    "jung": "futur_3_jung_QGIS.csv",
+    "alt": "futur_2_alt_QGIS.csv"
+  },
+  "frauen": {
+    "word": "Frauen",
+    "wordKey": "frauen",
+    "jung": "frauen_3_jung_QGIS.csv",
+    "sds": "frauen_1_sds_QGIS.csv",
+    "alt": "frauen_2_alt_QGIS.csv"
+  },
+  "flüstern": {
+    "word": "flüstern",
+    "wordKey": "flüstern",
+    "jung": "flüstern_3_jung_QGIS.csv",
+    "alt": "flüstern_2_alt_QGIS.csv"
+  },
+  "fenster": {
+    "word": "Fenster",
+    "wordKey": "fenster",
+    "jung": "fenster_3_jung_QGIS.csv",
+    "sds": "fenster_1_sds_QGIS.csv",
+    "alt": "fenster_2_alt_QGIS.csv"
+  },
+  "etwas": {
+    "word": "etwas",
+    "wordKey": "etwas",
+    "jung": "etwas_3_jung_QGIS.csv",
+    "sds": "etwas_1_sds_QGIS.csv",
+    "alt": "etwas_2_alt_QGIS.csv"
+  },
+  "entschuldigenNiesen": {
+    "word": "entschuldigen Niesen",
+    "wordKey": "entschuldigenNiesen",
+    "jung": "entschuldigenNiesen_3_jung_QGIS.csv",
+    "alt": "entschuldigenNiesen_2_alt_QGIS.csv"
+  },
+  "eidechse": {
+    "word": "Eidechse",
+    "wordKey": "eidechse",
+    "jung": "eidechse_3_jung_QGIS.csv",
+    "sds": "eidechse_1_sds_QGIS.csv",
+    "alt": "eidechse_2_alt_QGIS.csv"
+  },
+  "duzenSiezen": {
+    "word": "duzen Siezen",
+    "wordKey": "duzenSiezen",
+    "jung": "duzenSiezen_3_jung_QGIS.csv",
+    "alt": "duzenSiezen_2_alt_QGIS.csv"
+  },
+  "dutt": {
+    "word": "dutt",
+    "wordKey": "dutt",
+    "jung": "dutt_3_jung_QGIS.csv",
+    "alt": "dutt_2_alt_QGIS.csv"
+  },
+  "dummkopf": {
+    "word": "Dummkopf",
+    "wordKey": "dummkopf",
+    "jung": "dummkopf_3_jung_QGIS.csv",
+    "alt": "dummkopf_2_alt_QGIS.csv"
+  },
+  "drücken": {
+    "word": "drücken",
+    "wordKey": "drücken",
+    "jung": "drücken_3_jung_QGIS.csv",
+    "alt": "drücken_2_alt_QGIS.csv"
+  },
+  "drei": {
+    "word": "drei",
+    "wordKey": "drei",
+    "jung": "drei_3_jung_QGIS.csv",
+    "sds": "drei_1_sds_QGIS.csv",
+    "alt": "drei_2_alt_QGIS.csv"
+  },
+  "dreiMänner": {
+    "word": "drei Männer",
+    "wordKey": "dreiMänner",
+    "jung": "dreiMänner_3_jung_QGIS.csv",
+    "sds": "dreiMänner_1_sds_QGIS.csv",
+    "alt": "dreiMänner_2_alt_QGIS.csv"
+  },
+  "dreiMFNKombi": {
+    "word": "drei M FN Kombi",
+    "wordKey": "dreiMFNKombi",
+    "jung": "dreiMFNKombi_3_jung_QGIS.csv",
+    "sds": "dreiMFNKombi_1_sds_QGIS.csv",
+    "alt": "dreiMFNKombi_2_alt_QGIS.csv"
+  },
+  "dreiKinder": {
+    "word": "drei Kinder",
+    "wordKey": "dreiKinder",
+    "jung": "dreiKinder_3_jung_QGIS.csv",
+    "sds": "dreiKinder_1_sds_QGIS.csv",
+    "alt": "dreiKinder_2_alt_QGIS.csv"
+  },
+  "dreiFrauen": {
+    "word": "drei Frauen",
+    "wordKey": "dreiFrauen",
+    "jung": "dreiFrauen_3_jung_QGIS.csv",
+    "sds": "dreiFrauen_1_sds_QGIS.csv",
+    "alt": "dreiFrauen_2_alt_QGIS.csv"
+  },
+  "differenzHeraufHinauf": {
+    "word": "differenz Herauf Hinauf",
+    "wordKey": "differenzHeraufHinauf",
+    "jung": "differenzHeraufHinauf_3_jung_QGIS.csv",
+    "sds": "differenzHeraufHinauf_1_sds_QGIS.csv",
+    "alt": "differenzHeraufHinauf_2_alt_QGIS.csv"
+  },
+  "dichDir": {
+    "word": "dich Dir",
+    "wordKey": "dichDir",
+    "jung": "dichDir_3_jung_QGIS.csv",
+    "alt": "dichDir_2_alt_QGIS.csv"
+  },
+  "dialectidentity": {
+    "word": "dialectidentity",
+    "wordKey": "dialectidentity",
+    "jung": "dialectidentity_3_jung_QGIS.csv",
+    "alt": "dialectidentity_2_alt_QGIS.csv"
+  },
+  "derPatrick": {
+    "word": "der Patrick",
+    "wordKey": "derPatrick",
+    "jung": "derPatrick_3_jung_QGIS.csv",
+    "sds": "derPatrick_1_sds_QGIS.csv",
+    "alt": "derPatrick_2_alt_QGIS.csv"
+  },
+  "darm": {
+    "word": "Darm",
+    "wordKey": "darm",
+    "jung": "darm_3_jung_QGIS.csv",
+    "sds": "darm_1_sds_QGIS.csv",
+    "alt": "darm_2_alt_QGIS.csv"
+  },
+  "dankeserwiderung": {
+    "word": "dankes Erwiderung",
+    "wordKey": "dankeserwiderung",
+    "jung": "dankeserwiderung_3_jung_QGIS.csv",
+    "alt": "dankeserwiderung_2_alt_QGIS.csv"
+  },
+  "coop": {
+    "word": "Coop",
+    "wordKey": "coop",
+    "jung": "coop_3_jung_QGIS.csv",
+    "alt": "coop_2_alt_QGIS.csv"
+  },
+  "butter": {
+    "word": "Butter",
+    "wordKey": "butter",
+    "jung": "butter_3_jung_QGIS.csv",
+    "sds": "butter_1_sds_QGIS.csv",
+    "alt": "butter_2_alt_QGIS.csv"
+  },
+  "butterLexGenus": {
+    "word": "Butter Lex Genus",
+    "wordKey": "butterLexGenus",
+    "jung": "butterLexGenus_3_jung_QGIS.csv",
+    "sds": "butterLexGenus_1_sds_QGIS.csv",
+    "alt": "butterLexGenus_2_alt_QGIS.csv"
+  },
+  "butterGenus": {
+    "word": "Butter Genus",
+    "wordKey": "butterGenus",
+    "jung": "butterGenus_3_jung_QGIS.csv",
+    "alt": "butterGenus_2_alt_QGIS.csv"
+  },
+  "busVerabschieden": {
+    "word": "bus Verabschieden",
+    "wordKey": "busVerabschieden",
+    "jung": "busVerabschieden_3_jung_QGIS.csv",
+    "alt": "busVerabschieden_2_alt_QGIS.csv"
+  },
+  "busBedanken": {
+    "word": "bus Bedanken",
+    "wordKey": "busBedanken",
+    "jung": "busBedanken_3_jung_QGIS.csv",
+    "alt": "busBedanken_2_alt_QGIS.csv"
+  },
+  "bruder": {
+    "word": "Bruder",
+    "wordKey": "bruder",
+    "jung": "bruder_3_jung_QGIS.csv",
+    "sds": "bruder_1_sds_QGIS.csv",
+    "alt": "bruder_2_alt_QGIS.csv"
+  },
+  "brotanfang": {
+    "word": "Brotanfang",
+    "wordKey": "brotanfang",
+    "jung": "brotanfang_3_jung_QGIS.csv",
+    "sds": "brotanfang_1_sds_QGIS.csv",
+    "alt": "brotanfang_2_alt_QGIS.csv"
+  },
+  "brot": {
+    "word": "Brot",
+    "wordKey": "brot",
+    "jung": "brot_3_jung_QGIS.csv",
+    "sds": "brot_1_sds_QGIS.csv",
+    "alt": "brot_2_alt_QGIS.csv"
+  },
+  "brille": {
+    "word": "Brille",
+    "wordKey": "brille",
+    "jung": "brille_3_jung_QGIS.csv",
+    "sds": "brille_1_sds_QGIS.csv",
+    "alt": "brille_2_alt_QGIS.csv"
+  },
+  "brilleKonsonant": {
+    "word": "Brille Konsonant",
+    "wordKey": "brilleKonsonant",
+    "jung": "brilleKonsonant_3_jung_QGIS.csv",
+    "sds": "brilleKonsonant_1_sds_QGIS.csv",
+    "alt": "brilleKonsonant_2_alt_QGIS.csv"
+  },
+  "bonbon": {
+    "word": "Bonbon",
+    "wordKey": "bonbon",
+    "jung": "bonbon_3_jung_QGIS.csv",
+    "sds": "bonbon_1_sds_QGIS.csv",
+    "alt": "bonbon_2_alt_QGIS.csv"
+  },
+  "bildung": {
+    "word": "Bildung",
+    "wordKey": "bildung",
+    "jung": "bildung_3_jung_QGIS.csv",
+    "alt": "bildung_2_alt_QGIS.csv"
+  },
+  "biene": {
+    "word": "Biene",
+    "wordKey": "biene",
+    "jung": "biene_3_jung_QGIS.csv",
+    "sds": "biene_1_sds_QGIS.csv",
+    "alt": "biene_2_alt_QGIS.csv"
+  },
+  "bettPlural": {
+    "word": "Bett Plural",
+    "wordKey": "bettPlural",
+    "jung": "bettPlural_3_jung_QGIS.csv",
+    "sds": "bettPlural_1_sds_QGIS.csv",
+    "alt": "bettPlural_2_alt_QGIS.csv"
+  },
+  "bettPhon": {
+    "word": "Bett Phon",
+    "wordKey": "bettPhon",
+    "jung": "bettPhon_3_jung_QGIS.csv",
+    "sds": "bettPhon_1_sds_QGIS.csv",
+    "alt": "bettPhon_2_alt_QGIS.csv"
+  },
+  "bernerin": {
+    "word": "Bernerin",
+    "wordKey": "bernerin",
+    "jung": "bernerin_3_jung_QGIS.csv",
+    "sds": "bernerin_1_sds_QGIS.csv",
+    "alt": "bernerin_2_alt_QGIS.csv"
+  },
+  "bekommen": {
+    "word": "bekommen",
+    "wordKey": "bekommen",
+    "jung": "bekommen_3_jung_QGIS.csv",
+    "sds": "bekommen_1_sds_QGIS.csv",
+    "alt": "bekommen_2_alt_QGIS.csv"
+  },
+  "bauen": {
+    "word": "Bauen",
+    "wordKey": "bauen",
+    "jung": "bauen_3_jung_QGIS.csv",
+    "sds": "bauen_1_sds_QGIS.csv",
+    "alt": "bauen_2_alt_QGIS.csv"
+  },
+  "baby": {
+    "word": "Baby",
+    "wordKey": "baby",
+    "jung": "baby_3_jung_QGIS.csv",
+    "alt": "baby_2_alt_QGIS.csv"
+  },
+  "ausruhen": {
+    "word": "ausruhen",
+    "wordKey": "ausruhen",
+    "jung": "ausruhen_3_jung_QGIS.csv",
+    "sds": "ausruhen_1_sds_QGIS.csv",
+    "alt": "ausruhen_2_alt_QGIS.csv"
+  },
+  "augen": {
+    "word": "Augen",
+    "wordKey": "augen",
+    "jung": "augen_3_jung_QGIS.csv",
+    "sds": "augen_1_sds_QGIS.csv",
+    "alt": "augen_2_alt_QGIS.csv"
+  },
+  "apokopeKombi": {
+    "word": "apokope Kombi",
+    "wordKey": "apokopeKombi",
+    "jung": "apokopeKombi_3_jung_QGIS.csv",
+    "sds": "apokopeKombi_1_sds_QGIS.csv",
+    "alt": "apokopeKombi_2_alt_QGIS.csv"
+  },
+  "apfelüberrest": {
+    "word": "Apfelüberrest",
+    "wordKey": "apfelüberrest",
+    "jung": "apfelüberrest_3_jung_QGIS.csv",
+    "sds": "apfelüberrest_1_sds_QGIS.csv",
+    "alt": "apfelüberrest_2_alt_QGIS.csv"
+  },
+  "apfel": {
+    "word": "Apfel",
+    "wordKey": "apfel",
+    "jung": "apfel_3_jung_QGIS.csv",
+    "sds": "apfel_1_sds_QGIS.csv",
+    "alt": "apfel_2_alt_QGIS.csv"
+  },
+  "alter": {
+    "word": "Alter",
+    "wordKey": "alter",
+    "jung": "alter_3_jung_QGIS.csv",
+    "alt": "alter_2_alt_QGIS.csv"
+  },
+  "altFlexion": {
+    "word": "alt Flexion",
+    "wordKey": "altFlexion",
+    "jung": "altFlexion_3_jung_QGIS.csv",
+    "sds": "altFlexion_1_sds_QGIS.csv",
+    "alt": "altFlexion_2_alt_QGIS.csv"
+  },
+  "achse": {
+    "word": "Achse",
+    "wordKey": "achse",
+    "jung": "achse_3_jung_QGIS.csv",
+    "sds": "achse_1_sds_QGIS.csv",
+    "alt": "achse_2_alt_QGIS.csv"
+  },
+  "abendVokal": {
+    "word": "Abend Vokal",
+    "wordKey": "abendVokal",
+    "jung": "abendVokal_3_jung_QGIS.csv",
+    "sds": "abendVokal_1_sds_QGIS.csv",
+    "alt": "abendVokal_2_alt_QGIS.csv"
+  },
+  "abendEndung": {
+    "word": "Abend Endung",
+    "wordKey": "abendEndung",
+    "jung": "abendEndung_3_jung_QGIS.csv",
+    "sds": "abendEndung_1_sds_QGIS.csv",
+    "alt": "abendEndung_2_alt_QGIS.csv"
+  }
+}
