@@ -52,7 +52,7 @@
       "additionalProperties": false,
       "properties": {
         "type": {
-          "$ref": "#/definitions/LayerType"
+          "type": "string"
         },
         "features": {
           "type": "array",
@@ -84,7 +84,10 @@
           }
         },
         "editMode": {
-          "$ref": "#/definitions/EditMode"
+          "type": "string"
+        },
+        "labelKey": {
+          "type": "string"
         },
         "browsable": {
           "type": "boolean"
@@ -92,18 +95,22 @@
         "inCaption": {
           "type": "boolean"
         },
-        "showLabel": {
-          "type": "null"
-        },
         "remoteData": {
-          "$ref": "#/definitions/LimitBounds"
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
         },
         "displayOnLoad": {
           "type": "boolean"
+        },
+        "showLabel": {
+          "type": "null"
         }
       },
       "required": [
         "browsable",
+        "description",
         "displayOnLoad",
         "editMode",
         "fields",
@@ -119,26 +126,21 @@
       "additionalProperties": false,
       "properties": {
         "key": {
-          "$ref": "#/definitions/Key"
+          "type": "string"
         },
         "type": {
-          "$ref": "#/definitions/FieldType"
+          "type": "string"
         }
       },
       "required": ["key", "type"],
       "title": "Field"
-    },
-    "LimitBounds": {
-      "type": "object",
-      "additionalProperties": false,
-      "title": "LimitBounds"
     },
     "Feature": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "type": {
-          "enum": ["Feature"]
+          "$ref": "#/definitions/FeatureType"
         },
         "geometry": {
           "$ref": "#/definitions/FeatureGeometry"
@@ -202,6 +204,9 @@
       "properties": {
         "fillColor": {
           "type": "string"
+        },
+        "popupShape": {
+          "type": "string"
         }
       },
       "required": ["fillColor"],
@@ -234,54 +239,161 @@
               "type": "number"
             }
           },
-          "required": ["lat", "lng"],
-          "title": "Center"
+          "required": ["lat", "lng"]
+        },
+        "easing": {
+          "type": "boolean"
         },
         "fields": {
           "type": "array",
           "items": {}
         },
         "licence": {
-          "$ref": "#/definitions/Licence"
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "qt-uri-protocols": ["https"]
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": ["name", "url"],
+          "title": "Licence"
+        },
+        "miniMap": {
+          "type": "boolean"
         },
         "overlay": {
-          "$ref": "#/definitions/LimitBounds"
+          "type": "object"
         },
         "showLabel": {
           "type": "null"
         },
         "slideshow": {
-          "$ref": "#/definitions/LimitBounds"
+          "type": "object"
         },
         "tilelayer": {
-          "$ref": "#/definitions/LimitBounds"
+          "type": "object"
         },
-        "description": {
+        "captionBar": {
+          "type": "boolean"
+        },
+        "longCredit": {
           "type": "string"
         },
+        "description": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "homeControl": {
+          "type": "boolean"
+        },
         "limitBounds": {
-          "$ref": "#/definitions/LimitBounds"
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "east": {
+              "type": "number"
+            },
+            "west": {
+              "type": "number"
+            },
+            "north": {
+              "type": "number"
+            },
+            "south": {
+              "type": "number"
+            }
+          },
+          "required": ["east", "north", "south", "west"],
+          "title": "LimitBounds"
+        },
+        "moreControl": {
+          "type": "boolean"
         },
         "onLoadPanel": {
+          "type": "string"
+        },
+        "shortCredit": {
           "type": "string"
         },
         "zoomControl": {
           "type": "boolean"
         },
+        "embedControl": {
+          "type": "null"
+        },
+        "printControl": {
+          "type": "null"
+        },
+        "scaleControl": {
+          "type": "boolean"
+        },
+        "locateControl": {
+          "type": "null"
+        },
+        "captionControl": {
+          "type": "boolean"
+        },
+        "measureControl": {
+          "type": "null"
+        },
+        "permanentCredit": {
+          "type": "string"
+        },
+        "scrollWheelZoom": {
+          "type": "boolean"
+        },
+        "editinosmControl": {
+          "type": "null"
+        },
+        "labelInteractive": {
+          "type": "boolean"
+        },
+        "datalayersControl": {
+          "type": "boolean"
+        },
         "fullscreenControl": {
+          "type": "null"
+        },
+        "displayPopupFooter": {
           "type": "boolean"
         }
       },
       "required": [
+        "captionBar",
+        "captionControl",
         "center",
+        "datalayersControl",
         "description",
+        "displayPopupFooter",
+        "easing",
+        "editinosmControl",
+        "embedControl",
         "fields",
         "fullscreenControl",
+        "homeControl",
+        "labelInteractive",
         "licence",
         "limitBounds",
+        "locateControl",
+        "longCredit",
+        "measureControl",
+        "miniMap",
+        "moreControl",
         "name",
         "onLoadPanel",
         "overlay",
+        "permanentCredit",
+        "printControl",
+        "scaleControl",
+        "scrollWheelZoom",
+        "shortCredit",
         "showLabel",
         "slideshow",
         "tags",
@@ -291,49 +403,15 @@
       ],
       "title": "UMapProperties"
     },
-    "Licence": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "type": "string",
-          "format": "uri",
-          "qt-uri-protocols": ["https"]
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": ["name", "url"],
-      "title": "Licence"
-    },
-    "EditMode": {
-      "type": "string",
-      "enum": ["advanced"],
-      "title": "EditMode"
-    },
-    "Key": {
-      "type": "string",
-      "enum": ["name", "description", "fid"],
-      "title": "Key"
-    },
-    "FieldType": {
-      "type": "string",
-      "enum": ["String", "Text"],
-      "title": "FieldType"
-    },
     "GeometryType": {
       "type": "string",
       "enum": ["MultiPolygon"],
       "title": "GeometryType"
     },
     "FeatureType": {
-      "enum": ["Feature"]
-    },
-    "LayerType": {
       "type": "string",
-      "enum": ["FeatureCollection"],
-      "title": "LayerType"
+      "enum": ["Feature"],
+      "title": "FeatureType"
     }
   }
 }

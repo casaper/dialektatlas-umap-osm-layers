@@ -711,13 +711,9 @@
         "name": {
           "type": "string"
         },
-        "description": {
-          "type": "string"
-        },
         "rank": {
           "type": "integer",
-          "title": "datalayer-rank",
-          "minimum": 1
+          "title": "datalayer-rank"
         },
         "fields": {
           "type": "array",
@@ -736,7 +732,7 @@
               }
             },
             "required": ["key", "type"],
-            "title": "Custom User fields"
+            "title": "Field"
           }
         },
         "editMode": {
@@ -745,32 +741,21 @@
           "title": "EditMode"
         },
         "browsable": {
-          "title": "Data is browsable",
-          "description": "Set it to false to hide this layer from the slideshow, the data browser, the popup navigation…",
-          "type": "boolean",
-          "default": true,
-          "nullable": true
+          "type": "boolean"
         },
         "inCaption": {
           "type": "boolean"
         },
         "displayOnLoad": {
-          "title": "Display on load",
           "type": "boolean",
           "default": true
-        },
-        "labelKey": {
-          "type": "string",
-          "description": "The name of the property to use as layer label (eg.: \"nom\"). You can also use properties inside brackets to use more than one or mix with static content (eg.: \"&lcub;name&rcub; in &lcub;place&rcub;\")",
-          "title": "Label key",
-          "default": "name"
         },
         "showLabel": {
           "type": "boolean",
           "nullable": true,
           "default": false,
           "title": "Show label",
-          "description": "Whether to display a label on the layer. Choices: 'always' (true), 'never' (false), or 'on hover' (null). Default is 'never'."
+          "description": "Whether to display a label on the feature. Choices: 'always' (true), 'never' (false), or 'on hover' (null). Default is 'never'."
         },
         "remoteData": {
           "type": "object",

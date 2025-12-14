@@ -1,217 +1,238 @@
 import * as z from 'zod';
 
-export const GeometryTypeSchema = z.enum([
-  'LineString',
-  'MultiLineString',
-  'MultiPoint',
-  'MultiPolygon',
-  'Point',
-  'Polygon',
-]);
-export type GeometryType = z.infer<typeof GeometryTypeSchema>;
-
-export const GeoJsonPointTypeSchema = z.enum([
-  'GeometryCollection',
-  'LineString',
-  'MultiLineString',
-  'MultiPoint',
-  'MultiPolygon',
-  'Point',
-  'Polygon',
-]);
-export type GeoJsonPointType = z.infer<typeof GeoJsonPointTypeSchema>;
-
-// Icon shape
-
-export const IconShapeSchema = z.enum(['Ball', 'Circle', 'Default', 'Drop', 'LargeCircle', 'Raw']);
-export type IconShape = z.infer<typeof IconShapeSchema>;
-
-// The direction in which the label is displayed.
-
-export const LabelDirectionSchema = z.enum(['auto', 'bottom', 'left', 'right', 'top']);
-export type LabelDirection = z.infer<typeof LabelDirectionSchema>;
-
-export const OpenLinkInSchema = z.enum(['blank', 'parent', 'self']);
-export type OpenLinkIn = z.infer<typeof OpenLinkInSchema>;
-
-// Define the shape of the popup.  \nDefault: Popup  \nLarge: Popup (large)  \nPanel: Side
-// panel
-
-export const PopupShapeSchema = z.enum(['Default', 'Large', 'Panel']);
-export type PopupShape = z.infer<typeof PopupShapeSchema>;
-
-// Define the style of the popup content.
-
-export const PopupContentStyleSchema = z.enum([
-  'Default',
-  'GeoRSSImage',
-  'GeoRSSLink',
-  'OSM',
-  'Route',
-  'Table',
-  'Wikipedia',
-]);
-export type PopupContentStyle = z.infer<typeof PopupContentStyleSchema>;
-
-// Specifies the preference of the route
-//
-// Specifies the profile of the route
-
-export const PreferenceSchema = z.enum([
-  'cycling-regular',
-  'driving-car',
-  'foot-hiking',
-  'foot-walking',
-  'wheelchair',
-]);
-export type Preference = z.infer<typeof PreferenceSchema>;
-
-// Text position
-
-export const TextPathPositionSchema = z.enum(['center', 'end', 'start']);
-export type TextPathPosition = z.infer<typeof TextPathPositionSchema>;
-
-export const FeatureTypeSchema = z.enum(['Feature']);
-export type FeatureType = z.infer<typeof FeatureTypeSchema>;
-
-export const LayerTypeSchema = z.enum(['FeatureCollection']);
-export type LayerType = z.infer<typeof LayerTypeSchema>;
-
-export const EditModeSchema = z.enum(['advanced', 'disabled', 'simple']);
-export type EditMode = z.infer<typeof EditModeSchema>;
-
-export const KeySchema = z.enum(['description', 'fid', 'name']);
-export type Key = z.infer<typeof KeySchema>;
-
-export const FieldTypeSchema = z.enum(['String', 'Text']);
-export type FieldType = z.infer<typeof FieldTypeSchema>;
-
-export const DataFormatSchema = z.enum(['csv', 'geojson', 'georss', 'gpx', 'kml', 'osm']);
-export type DataFormat = z.infer<typeof DataFormatSchema>;
-
-export const UMapGeometrySchema = z.object({
-  coordinates: z.array(z.number()),
-  type: z.string(),
-});
-export type UMapGeometry = z.infer<typeof UMapGeometrySchema>;
-
 export const GeometryElementSchema = z.object({
   bbox: z.array(z.number()).optional(),
   coordinates: z.array(
-    z.union([z.array(z.union([z.array(z.union([z.array(z.number()), z.number()])), z.number()])), z.number()])
+    z.union([
+      z.array(
+        z.union([
+          z.array(z.union([z.array(z.number()), z.number()])),
+          z.number(),
+        ])
+      ),
+      z.number(),
+    ])
   ),
-  type: GeometryTypeSchema,
+  type: z.enum([
+    'LineString',
+    'MultiLineString',
+    'MultiPoint',
+    'MultiPolygon',
+    'Point',
+    'Polygon',
+  ]),
 });
 export type GeometryElement = z.infer<typeof GeometryElementSchema>;
-
-export const RouteSchema = z.object({
-  active: z.boolean().optional(),
-  coordinates: z.array(z.number()).optional(),
-  elevation: z.boolean().optional(),
-  preference: PreferenceSchema.optional(),
-  profile: PreferenceSchema.optional(),
-});
-export type Route = z.infer<typeof RouteSchema>;
-
-export const FieldSchema = z.object({
-  key: KeySchema,
-  type: FieldTypeSchema,
-});
-export type Field = z.infer<typeof FieldSchema>;
-
-export const UmapOptionsLimitBoundsSchema = z.object({
-  east: z.string().optional(),
-  north: z.string().optional(),
-  south: z.string().optional(),
-  west: z.string().optional(),
-});
-export type UmapOptionsLimitBounds = z.infer<typeof UmapOptionsLimitBoundsSchema>;
-
-export const RemoteDataSchema = z.object({
-  dynamic: z.boolean().optional(),
-  format: z.union([DataFormatSchema, z.null()]).optional(),
-  from: z.number().optional(),
-  licence: z.string().optional(),
-  proxy: z.boolean().optional(),
-  to: z.number().optional(),
-  ttl: z.union([z.number(), z.number(), z.null()]).optional(),
-  url: z.string().optional(),
-});
-export type RemoteData = z.infer<typeof RemoteDataSchema>;
-
-export const CenterSchema = z.object({
-  lat: z.number(),
-  lng: z.number(),
-});
-export type Center = z.infer<typeof CenterSchema>;
-
-export const LicenceSchema = z.object({
-  name: z.string(),
-  url: z.string(),
-});
-export type Licence = z.infer<typeof LicenceSchema>;
-
-export const OverlayClassSchema = z.object({});
-export type OverlayClass = z.infer<typeof OverlayClassSchema>;
 
 export const GeoJsonSchema = z.object({
   bbox: z.array(z.number()).optional(),
   coordinates: z
     .array(
       z.union([
-        z.array(z.union([z.array(z.union([z.array(z.number()), z.number()])), z.number()])),
+        z.array(
+          z.union([
+            z.array(z.union([z.array(z.number()), z.number()])),
+            z.number(),
+          ])
+        ),
         z.number(),
       ])
     )
     .optional(),
-  type: GeoJsonPointTypeSchema,
+  type: z.enum([
+    'GeometryCollection',
+    'LineString',
+    'MultiLineString',
+    'MultiPoint',
+    'MultiPolygon',
+    'Point',
+    'Polygon',
+  ]),
   geometries: z.array(GeometryElementSchema).optional(),
 });
 export type GeoJson = z.infer<typeof GeoJsonSchema>;
 
+export const RoutePreferenceEnum = z.enum([
+  'cycling-regular',
+  'driving-car',
+  'foot-hiking',
+  'foot-walking',
+  'wheelchair',
+]);
+export type RoutePreference = z.infer<typeof RoutePreferenceEnum>;
+
+export const RouteSchema = z.object({
+  active: z
+    .boolean()
+    .optional()
+    .meta({ description: 'Indicates whether the route is active' }),
+  coordinates: z
+    .array(z.number())
+    .optional()
+    .meta({ description: 'Array of coordinates for the route' }),
+  elevation: z
+    .boolean()
+    .optional()
+    .meta({ description: 'Indicates whether elevation data is included' }),
+  preference: RoutePreferenceEnum.optional().meta({
+    description: 'Specifies the preference of the route',
+  }),
+  profile: RoutePreferenceEnum.optional().meta({
+    description: 'Specifies the profile of the route',
+  }),
+});
+export type Route = z.infer<typeof RouteSchema>;
+
 export const PropertiesUmapOptionsSchema = z.object({
-  color: z.string().optional(),
-  dashArray: z.string().optional(),
-  fill: z.boolean().optional(),
-  fillColor: z.string().optional(),
+  color: z.string().optional().meta({ description: 'Color value' }),
+  dashArray: z.string().optional().meta({
+    description: `A comma separated list of numbers that defines the stroke dash pattern. Ex.: "5, 10, 15".`,
+  }),
+  fill: z
+    .boolean()
+    .optional()
+    .meta({ description: 'Whether to fill polygons with color.' }),
+  fillColor: z
+    .string()
+    .optional()
+    .meta({ description: 'Same as color if not set. [Optional]' }),
   fillOpacity: z.any().optional(),
-  iconClass: IconShapeSchema.optional(),
+  iconClass: z
+    .enum(['Ball', 'Circle', 'Default', 'Drop', 'LargeCircle', 'Raw'])
+    .optional()
+    .meta({ description: 'Icon shape' }),
   iconOpacity: z.number().optional(),
-  iconSize: z.number().optional(),
-  iconUrl: z.string().optional(),
-  interactive: z.boolean().optional(),
-  labelDirection: LabelDirectionSchema.optional(),
-  labelInteractive: z.boolean().optional(),
-  labelKey: z.string().optional(),
-  mask: z.boolean().optional(),
-  opacity: z.number().optional(),
-  outlink: z.string().optional(),
-  outlinkTarget: OpenLinkInSchema.optional(),
-  popupShape: PopupShapeSchema.optional(),
-  popupTemplate: PopupContentStyleSchema.optional(),
+  iconSize: z.number().optional().meta({
+    description: 'Icon size. Will only affect raw and large circle icons.',
+  }),
+  iconUrl: z.string().optional().meta({ description: 'Icon symbol' }),
+  interactive: z.boolean().optional().meta({
+    description:
+      'If false, the polygon or line will act as a part of the underlying map.',
+  }),
+  labelDirection: z
+    .enum(['auto', 'bottom', 'left', 'right', 'top'])
+    .optional()
+    .meta({
+      description: 'The direction in which the label is displayed.',
+    }),
+  labelInteractive: z
+    .boolean()
+    .optional()
+    .meta({ description: 'Whether the label should be interactive.' }),
+  labelKey: z
+    .string()
+    .optional()
+    .meta({
+      description: [
+        'The name of the property to use as layer label (eg.: "nom"). You can also use properties',
+        'inside brackets to use more than one or mix with static content (eg.: "&lcub;name&rcub; in &lcub;place&rcub;")',
+      ].join('\n'),
+    }),
+  mask: z
+    .boolean()
+    .optional()
+    .meta({ description: 'Display the polygon inverted' }),
+  opacity: z.number().optional().meta({ description: 'Opacity value' }),
+  outlink: z.string().optional().meta({
+    description: 'Define link to open in a new window on polygon click.',
+  }),
+  outlinkTarget: z.enum(['blank', 'parent', 'self']).optional(),
+  popupShape: z
+    .enum(['Default', 'Large', 'Panel'])
+    .optional()
+    .meta({
+      description: [
+        'Define the shape of the popup.',
+        '',
+        'Default: Popup',
+        'Large: Popup (large)',
+        'Panel: Side panel',
+      ].join('\n'),
+    }),
+  popupTemplate: z
+    .enum([
+      'Default',
+      'GeoRSSImage',
+      'GeoRSSLink',
+      'OSM',
+      'Route',
+      'Table',
+      'Wikipedia',
+    ])
+    .optional()
+    .meta({
+      description: 'Define the style of the popup content.',
+    }),
   route: RouteSchema.optional(),
-  showLabel: z.boolean().optional(),
-  smoothFactor: z.number().optional(),
-  stroke: z.boolean().optional(),
-  textPath: z.string().optional(),
-  textPathColor: z.string().optional(),
-  textPathOffset: z.number().optional(),
-  textPathPosition: TextPathPositionSchema.optional(),
-  textPathRepeat: z.boolean().optional(),
-  textPathRotate: z.number().optional(),
-  textPathSize: z.number().optional(),
-  weight: z.number().optional(),
-  zoomTo: z.number().optional(),
+  showLabel: z
+    .boolean()
+    .optional()
+    .meta({
+      description: [
+        `Whether to display a label on the layer.`,
+        `Choices: 'always' (true), 'never' (false), or 'on hover' (null).`,
+        `Default is 'never'.`,
+      ].join('\n'),
+    }),
+  smoothFactor: z.number().optional().meta({ description: '' }),
+  stroke: z.boolean().optional().meta({ description: '' }),
+  textPath: z.string().optional().meta({ description: '' }),
+  textPathColor: z.string().optional().meta({ description: '' }),
+  textPathOffset: z.number().optional().meta({ description: 'Text offset' }),
+  textPathPosition: z.enum(['center', 'end', 'start']).optional().meta({
+    description: 'Text position',
+  }),
+  textPathRepeat: z.boolean().optional().meta({ description: 'Text repeat' }),
+  textPathRotate: z.number().optional().meta({ description: 'Text rotate' }),
+  textPathSize: z.number().optional().meta({ description: 'Text size' }),
+  weight: z.number().optional().meta({ description: 'Weight value' }),
+  zoomTo: z
+    .number()
+    .optional()
+    .meta({ description: 'Zoom level for automatic zooms' }),
 });
 export type PropertiesUmapOptions = z.infer<typeof PropertiesUmapOptionsSchema>;
 
+export const RemoteDataSchema = z.object({
+  dynamic: z.boolean().optional().meta({ description: '' }),
+  format: z
+    .union([
+      z.enum(['csv', 'geojson', 'georss', 'gpx', 'kml', 'osm']),
+      z.null(),
+    ])
+    .optional(),
+  from: z.number().optional(),
+  licence: z.string().optional().meta({ description: '' }),
+  proxy: z.boolean().optional().meta({ description: '' }),
+  to: z.number().optional(),
+  ttl: z.union([z.number(), z.number(), z.null()]).optional(),
+  url: z.string().optional(),
+});
+export type RemoteData = z.infer<typeof RemoteDataSchema>;
+
 export const LayerUmapOptionsSchema = z.object({
-  browsable: z.boolean(),
+  browsable: z.boolean().meta({
+    description:
+      'Set it to false to hide this layer from the slideshow, the data browser, the popup navigation …',
+  }),
   displayOnLoad: z.boolean(),
-  editMode: EditModeSchema,
-  fields: z.array(FieldSchema),
+  editMode: z.enum(['advanced', 'disabled', 'simple']),
+  fields: z.array(
+    z.object({
+      key: z.string().meta({ description: '' }),
+      type: z.enum(['String', 'Text']),
+    })
+  ),
   inCaption: z.boolean(),
-  limitBounds: UmapOptionsLimitBoundsSchema.optional(),
+  limitBounds: z
+    .object({
+      east: z.string().optional(),
+      north: z.string().optional(),
+      south: z.string().optional(),
+      west: z.string().optional(),
+    })
+    .optional(),
   name: z.string(),
   rank: z.number(),
   remoteData: RemoteDataSchema,
@@ -220,19 +241,25 @@ export const LayerUmapOptionsSchema = z.object({
 export type LayerUmapOptions = z.infer<typeof LayerUmapOptionsSchema>;
 
 export const UMapPropertiesSchema = z.object({
-  center: CenterSchema,
+  center: z.object({
+    lat: z.number(),
+    lng: z.number(),
+  }),
   description: z.string(),
   fields: z.array(z.any()),
   fullscreenControl: z.boolean(),
-  licence: LicenceSchema,
-  limitBounds: OverlayClassSchema,
+  licence: z.object({
+    name: z.string(),
+    url: z.string(),
+  }),
+  limitBounds: z.object({}),
   name: z.string(),
   onLoadPanel: z.string(),
-  overlay: OverlayClassSchema,
+  overlay: z.object({}),
   showLabel: z.null(),
-  slideshow: OverlayClassSchema,
+  slideshow: z.object({}),
   tags: z.array(z.string()),
-  tilelayer: OverlayClassSchema,
+  tilelayer: z.object({}),
   zoom: z.number(),
   zoomControl: z.boolean(),
 });
@@ -250,7 +277,7 @@ export const GeoJsonFeatureSchema = z.object({
   geometry: z.union([GeoJsonSchema, z.null()]),
   id: z.union([z.number(), z.string()]).optional(),
   properties: FeaturePropertiesSchema,
-  type: FeatureTypeSchema,
+  type: z.enum(['Feature']),
 });
 export type GeoJsonFeature = z.infer<typeof GeoJsonFeatureSchema>;
 
@@ -258,15 +285,23 @@ export const UMapLayerGeoJsonFeatureCollectionSchema = z.object({
   _umap_options: LayerUmapOptionsSchema.optional(),
   bbox: z.array(z.number()).optional(),
   features: z.array(GeoJsonFeatureSchema),
-  type: LayerTypeSchema,
+  type: z.enum(['FeatureCollection']),
 });
-export type UMapLayerGeoJsonFeatureCollection = z.infer<typeof UMapLayerGeoJsonFeatureCollectionSchema>;
+export type UMapLayerGeoJsonFeatureCollection = z.infer<
+  typeof UMapLayerGeoJsonFeatureCollectionSchema
+>;
 
-export const UMapZodSchema = z.object({
+export const UMapGeometrySchema = z.object({
+  coordinates: z.array(z.number()),
+  type: z.string(),
+});
+export type UMapGeometry = z.infer<typeof UMapGeometrySchema>;
+
+export const UMapSchema = z.object({
   geometry: UMapGeometrySchema,
   layers: z.array(UMapLayerGeoJsonFeatureCollectionSchema),
   properties: UMapPropertiesSchema,
   type: z.string(),
   uri: z.string(),
 });
-export type UMapZod = z.infer<typeof UMapZodSchema>;
+export type UMap = z.infer<typeof UMapSchema>;

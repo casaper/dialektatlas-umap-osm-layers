@@ -80,7 +80,15 @@
                   "popupTemplate": {
                     "title": "Popup content style",
                     "description": "Define the style of the popup content.",
-                    "enum": ["Default", "Table", "GeoRSSImage", "GeoRSSLink", "OSM", "Wikipedia", "Route"],
+                    "enum": [
+                      "Default",
+                      "Table",
+                      "GeoRSSImage",
+                      "GeoRSSLink",
+                      "OSM",
+                      "Wikipedia",
+                      "Route"
+                    ],
                     "default": "Default"
                   },
                   "showLabel": {
@@ -127,7 +135,14 @@
                   "iconClass": {
                     "description": "Icon shape",
                     "title": "Icon shape",
-                    "enum": ["Default", "Circle", "LargeCircle", "Drop", "Ball", "Raw"],
+                    "enum": [
+                      "Default",
+                      "Circle",
+                      "LargeCircle",
+                      "Drop",
+                      "Ball",
+                      "Raw"
+                    ],
                     "default": "Default"
                   },
                   "iconSize": {
@@ -711,9 +726,13 @@
         "name": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "rank": {
           "type": "integer",
-          "title": "datalayer-rank"
+          "title": "datalayer-rank",
+          "minimum": 1
         },
         "fields": {
           "type": "array",
@@ -727,12 +746,20 @@
                 "title": "Key"
               },
               "type": {
-                "enum": ["String", "Text", "Number", "Datetime", "Date", "Boolean", "Enum"],
+                "enum": [
+                  "String",
+                  "Text",
+                  "Number",
+                  "Datetime",
+                  "Date",
+                  "Boolean",
+                  "Enum"
+                ],
                 "title": "FieldType"
               }
             },
             "required": ["key", "type"],
-            "title": "Field"
+            "title": "Custom User fields"
           }
         },
         "editMode": {
@@ -741,21 +768,32 @@
           "title": "EditMode"
         },
         "browsable": {
-          "type": "boolean"
+          "title": "Data is browsable",
+          "description": "Set it to false to hide this layer from the slideshow, the data browser, the popup navigation…",
+          "type": "boolean",
+          "default": true,
+          "nullable": true
         },
         "inCaption": {
           "type": "boolean"
         },
         "displayOnLoad": {
+          "title": "Display on load",
           "type": "boolean",
           "default": true
+        },
+        "labelKey": {
+          "type": "string",
+          "description": "The name of the property to use as layer label (eg.: \"nom\"). You can also use properties inside brackets to use more than one or mix with static content (eg.: \"&lcub;name&rcub; in &lcub;place&rcub;\")",
+          "title": "Label key",
+          "default": "name"
         },
         "showLabel": {
           "type": "boolean",
           "nullable": true,
           "default": false,
           "title": "Show label",
-          "description": "Whether to display a label on the feature. Choices: 'always' (true), 'never' (false), or 'on hover' (null). Default is 'never'."
+          "description": "Whether to display a label on the layer. Choices: 'always' (true), 'never' (false), or 'on hover' (null). Default is 'never'."
         },
         "remoteData": {
           "type": "object",
