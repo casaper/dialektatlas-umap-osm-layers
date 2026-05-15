@@ -1,3 +1,6 @@
 [submodule "dialektatlas-data-source"]
 	path = dialektatlas-data-source
 	url = git@github.com:casaper/dialektatlas-data-source.git
+[submodule "umap"]
+	path = umap
+	url = git@github.com:umap-project/umap.git
