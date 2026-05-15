@@ -55,5 +55,5 @@ for file lookups.
 ## Constraints
 
 - Never read `src/source_data/samples.json` (47 MB)
-- Never explore `10_Kartierungssoftware/` — it is a separate 3GB repo, ask the user first
+- Never explore `dialektatlas-data-source/` — it is a separate 3GB repo, ask the user first
 - Keep output concise — don't dump raw JSON, summarize it

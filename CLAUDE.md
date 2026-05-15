@@ -11,7 +11,7 @@ POC: [Zwiebel map](https://umap.osm.ch/en/map/dialaktatlas-zwiebel_11727#10/46.8
 
 ## Critical Constraints
 
-**NEVER explore `10_Kartierungssoftware/`** without explicit user permission. It is a separate 3GB
+**NEVER explore `dialektatlas-data-source/`** without explicit user permission. It is a separate 3GB
 QGIS git repository. Reading it will exhaust context. Always ask first.
 
 **Never read `src/source_data/samples.json`** — it is 47 MB.

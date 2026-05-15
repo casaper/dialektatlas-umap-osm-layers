@@ -89,5 +89,5 @@ Report what was generated: word, age groups included, record counts per layer, a
 ## Constraints
 
 - Never read `src/source_data/samples.json` (47 MB)
-- Never explore `10_Kartierungssoftware/` — ask the user first
+- Never explore `dialektatlas-data-source/` — ask the user first
 - Match the schema closely — use the Zwiebel example as the authoritative template

@@ -1,0 +1,3 @@
+[submodule "dialektatlas-data-source"]
+	path = dialektatlas-data-source
+	url = git@github.com:casaper/dialektatlas-data-source.git
