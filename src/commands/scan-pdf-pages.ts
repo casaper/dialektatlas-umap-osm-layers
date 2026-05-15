@@ -1,21 +1,15 @@
 import { createCommand } from '@commander-js/extra-typings';
 import { execFile as cpExecFile } from 'child_process';
 import { existsSync } from 'fs';
-import { mkdtemp, readdir, rm, writeFile } from 'fs/promises';
+import { mkdtemp, readdir, rm } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { promisify } from 'util';
 
-import { wordPdfPagesDir, wordPdfScanPath } from '../paths';
+import { prisma } from '../lib';
+import { wordPdfPagesDir } from '../paths';
 
 const execFile = promisify(cpExecFile);
-
-export type PdfScanEntry = {
-  textLabel: string;
-  qrUrl: string | null;
-};
-
-export type WordPdfScan = Record<string, PdfScanEntry>;
 
 const extractLabel = (rawText: string): string => {
   const lines = rawText
@@ -44,7 +38,6 @@ export const scanPdfPagesCommand = createCommand('scan-pdf-pages')
 
     console.log(`Scanning ${wordDirs.length} SDS PDF pages...`);
     const tmpDir = await mkdtemp(join(tmpdir(), 'dialektatlas-scan-'));
-    const scan: WordPdfScan = {};
     let processed = 0;
 
     try {
@@ -93,7 +86,11 @@ export const scanPdfPagesCommand = createCommand('scan-pdf-pages')
               await rm(pngPath, { force: true });
             }
 
-            scan[wordKey] = { textLabel, qrUrl };
+            await prisma.word.update({
+              where: { wordKey },
+              data: { textLabel, qrUrl },
+            });
+
             processed++;
           })
         );
@@ -106,16 +103,8 @@ export const scanPdfPagesCommand = createCommand('scan-pdf-pages')
     }
 
     console.log('');
-    const sortedScan: WordPdfScan = {};
-    for (const key of Object.keys(scan).sort()) sortedScan[key] = scan[key];
-
-    await writeFile(
-      wordPdfScanPath,
-      JSON.stringify(sortedScan, null, 2),
-      'utf-8'
-    );
-    const withQr = Object.values(scan).filter(e => e.qrUrl !== null).length;
-    console.log(`PDF scan: ${Object.keys(scan).length} words`);
+    const withQr = await prisma.word.count({ where: { qrUrl: { not: null } } });
+    await prisma.$disconnect();
+    console.log(`PDF scan: ${processed} words`);
     console.log(`  With QR codes: ${withQr}`);
-    console.log(`  Written → ${wordPdfScanPath}`);
   });

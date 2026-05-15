@@ -1,0 +1,69 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum AgeGroup {
+  jung
+  alt
+  sds
+  older
+}
+
+model Word {
+  id           Int            @id @default(autoincrement())
+  wordKey      String         @unique
+  word         String
+
+  // Source CSV references (from word-csv-map)
+  csvJung      String?
+  csvAlt       String?
+  csvSds       String?
+  csvOlder     String?
+
+  // PDF outline match (from pdf-extract phases 1+2)
+  pdfLabel     String?
+  pdfStartPage Int?
+  sdsPage      Int?
+  altJungPage  Int?
+
+  // PDF scan results (from scan-pdf-pages)
+  textLabel    String?
+  qrUrl        String?
+
+  records      SurveyRecord[]
+}
+
+model Site {
+  siteCode String         @id
+  townName String
+  lat      Float?
+  lng      Float?
+
+  records  SurveyRecord[]
+}
+
+model SurveyRecord {
+  id                Int      @id @default(autoincrement())
+  wordId            Int
+  ageGroup          AgeGroup
+  siteCode          String
+  secondarySiteCode String?
+  domVar            String
+  variants          String[]
+  hexcode1          String
+  hexcodes          String[]
+  nvar              String
+  different         Boolean?
+
+  word Word @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  site Site @relation(fields: [siteCode], references: [siteCode])
+
+  @@unique([wordId, ageGroup, siteCode])
+  @@index([wordId])
+  @@index([siteCode])
+  @@index([ageGroup])
+}

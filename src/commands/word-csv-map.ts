@@ -1,10 +1,10 @@
 import { createCommand } from '@commander-js/extra-typings';
-import { writeFile } from 'fs/promises';
 import { glob } from 'glob';
 import { basename, join } from 'path';
 import * as zod from 'zod';
 
-import { wordAgeGroupedCsvs, wordMappingCsvsDir } from '../paths';
+import { prisma } from '../lib';
+import { wordMappingCsvsDir } from '../paths';
 
 export const ageTypes = ['jung', 'older', 'sds', 'alt'] as const;
 export const AgeTypeEnum = zod.enum(ageTypes);
@@ -29,7 +29,7 @@ export const WordAgeGroupedCsvsSchema = zod.record(
 export type WordAgeGroupedCsvs = zod.infer<typeof WordAgeGroupedCsvsSchema>;
 
 export const wordCsvMapCommand = createCommand('word-csv-map')
-  .description('')
+  .description('Index QGIS CSV files and upsert Word rows with CSV references')
   .action(async () => {
     const csvFiles = await glob(join(wordMappingCsvsDir, '*_QGIS.csv'));
     const csvWordGroups = csvFiles.reduce((acc, file) => {
@@ -48,10 +48,36 @@ export const wordCsvMapCommand = createCommand('word-csv-map')
       acc[wordKey] = wordData;
       return acc;
     }, {} as WordAgeGroupedCsvs);
-    console.log(`Found ${Object.keys(csvWordGroups).length} words.`);
-    await writeFile(
-      wordAgeGroupedCsvs,
-      JSON.stringify(csvWordGroups, null, 2),
-      { encoding: 'utf-8' }
+
+    console.log(
+      `Found ${Object.keys(csvWordGroups).length} words. Upserting...`
+    );
+
+    for (const [wordKey, { word, jung, alt, sds, older }] of Object.entries(
+      csvWordGroups
+    )) {
+      await prisma.word.upsert({
+        where: { wordKey },
+        create: {
+          wordKey,
+          word,
+          csvJung: jung ?? null,
+          csvAlt: alt ?? null,
+          csvSds: sds ?? null,
+          csvOlder: older ?? null,
+        },
+        update: {
+          word,
+          csvJung: jung ?? null,
+          csvAlt: alt ?? null,
+          csvSds: sds ?? null,
+          csvOlder: older ?? null,
+        },
+      });
+    }
+
+    await prisma.$disconnect();
+    console.log(
+      `Done — ${Object.keys(csvWordGroups).length} Word rows upserted.`
     );
   });

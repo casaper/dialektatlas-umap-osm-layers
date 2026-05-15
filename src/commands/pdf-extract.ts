@@ -1,18 +1,12 @@
 import { createCommand } from '@commander-js/extra-typings';
 import { execFile as cpExecFile } from 'child_process';
 import clc from 'cli-color';
-import { mkdir, writeFile } from 'fs/promises';
-import { glob } from 'glob';
-import { basename, join } from 'path';
+import { mkdir } from 'fs/promises';
+import { join } from 'path';
 import { promisify } from 'util';
 
-import {
-  dialektatlasPdfPath,
-  wordDataDir,
-  wordPdfPageIndexPath,
-  wordPdfPagesDir,
-  wordPdfTocPath,
-} from '../paths';
+import { prisma } from '../lib';
+import { dialektatlasPdfPath, wordPdfPagesDir } from '../paths';
 import {
   knownUnmatchable,
   matchTocLabel,
@@ -42,7 +36,6 @@ const collectLeafEntries = (entries: QpdfOutlineEntry[]): TocEntry[] =>
   entries.flatMap(entry => {
     if (entry.kids.length > 0) return collectLeafEntries(entry.kids);
     if (entry.destpageposfrom1 < 27) return [];
-    // Normalise whitespace: collapse thin spaces / multiple spaces, strip edges
     const label = entry.title.replace(/\s+/g, ' ').trim();
     return [{ label, startPage: entry.destpageposfrom1 }];
   });
@@ -82,14 +75,14 @@ export const pdfExtractCommand = createCommand('pdf-extract')
   .action(async () => {
     console.log('Phase 1: Reading native PDF outline...');
     const toc = await parseNativeOutline();
-    await writeFile(wordPdfTocPath, JSON.stringify(toc, null, 2), {
-      encoding: 'utf-8',
-    });
-    console.log(`  Found ${toc.length} entries → ${wordPdfTocPath}`);
+    console.log(`  Found ${toc.length} entries`);
 
-    console.log('\nPhase 2: Matching outline entries to word_data keys...');
-    const wordDataFiles = await glob(join(wordDataDir, '*.json'));
-    const wordKeys = wordDataFiles.map(f => basename(f, '.json'));
+    console.log('\nPhase 2: Matching outline entries to Word rows...');
+    const wordRows = await prisma.word.findMany({
+      select: { id: true, wordKey: true },
+    });
+    const wordKeys = wordRows.map(w => w.wordKey);
+    const wordKeyToId = new Map(wordRows.map(w => [w.wordKey, w.id]));
 
     const pageIndex: WordPdfPageIndex = {};
     const unmatched: string[] = [];
@@ -105,7 +98,6 @@ export const pdfExtractCommand = createCommand('pdf-extract')
     };
 
     for (const entry of toc) {
-      // Page-based overrides take priority (handles ambiguous duplicate titles)
       if (entry.startPage in pdfPageOverrides) {
         pdfPageOverrides[entry.startPage].forEach(wk => addToIndex(wk, entry));
         continue;
@@ -119,11 +111,26 @@ export const pdfExtractCommand = createCommand('pdf-extract')
       matched.forEach(wk => addToIndex(wk, entry));
     }
 
-    await writeFile(wordPdfPageIndexPath, JSON.stringify(pageIndex, null, 2), {
-      encoding: 'utf-8',
-    });
+    await Promise.all(
+      Object.entries(pageIndex).map(
+        ([wordKey, { label, startPage, sdsPage, altJungPage }]) => {
+          const id = wordKeyToId.get(wordKey);
+          if (!id) return;
+          return prisma.word.update({
+            where: { id },
+            data: {
+              pdfLabel: label,
+              pdfStartPage: startPage,
+              sdsPage,
+              altJungPage,
+            },
+          });
+        }
+      )
+    );
+
     console.log(
-      `  Matched ${Object.keys(pageIndex).length} / ${wordKeys.length} word_data entries`
+      `  Matched and updated ${Object.keys(pageIndex).length} / ${wordKeys.length} Word rows`
     );
     if (unmatched.length > 0) {
       console.log(
@@ -131,7 +138,6 @@ export const pdfExtractCommand = createCommand('pdf-extract')
       );
       unmatched.forEach(label => console.log(`    - ${label}`));
     }
-    console.log(`  Index written → ${wordPdfPageIndexPath}`);
 
     console.log('\nPhase 3: Extracting pages as lossless PDF...');
     await mkdir(wordPdfPagesDir, { recursive: true });
@@ -158,5 +164,6 @@ export const pdfExtractCommand = createCommand('pdf-extract')
     }
     console.log(`\n  PDFs saved → ${wordPdfPagesDir}/`);
 
+    await prisma.$disconnect();
     console.log(clc.green('\nDone.'));
   });

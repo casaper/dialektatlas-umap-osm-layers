@@ -1,14 +1,13 @@
 import { createCommand } from '@commander-js/extra-typings';
 import clc from 'cli-color';
 import { parse } from 'csv-parse/sync';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 import { uniqWith } from 'lodash';
-import { basename, join } from 'path';
+import { join } from 'path';
 
-import { dictEntries, exec, notNil } from '../lib';
-import { wordAgeGroupedCsvs, wordDataDir, wordMappingCsvsDir } from '../paths';
+import { notNil, prisma } from '../lib';
+import { wordMappingCsvsDir } from '../paths';
 import { CsvRow, CsvRowSchema } from './csv-rows.zod';
-import { WordAgeGroupedCsvsSchema } from './word-csv-map';
 
 type ConsolidatedRecord = {
   site_code: CsvRow['site_code'];
@@ -72,34 +71,38 @@ const consolidateRecord = ({
   };
 };
 
-const processCsvFile = async (filePath: string) => {
+const processCsvFile = async (
+  filePath: string
+): Promise<ConsolidatedRecord[]> => {
   const fileContent = await readFile(filePath, { encoding: 'utf-8' });
   const records = parse(fileContent, {
     columns: true,
     skip_empty_lines: true,
     encoding: 'utf-8',
   });
-  await writeFile(
-    join(wordMappingCsvsDir, `${basename(filePath, '.csv')}.json`),
-    JSON.stringify(records, null, 2)
-  );
+
   const consolidated = records
-    .map(row => consolidateRecord(CsvRowSchema.parse(row)))
+    .map((row: unknown) => consolidateRecord(CsvRowSchema.parse(row)))
     .filter(notNil);
   const consolidatedCountOriginal = consolidated.length;
 
-  const haveOneVariant = consolidated.filter(r => r.variants.length === 1);
-  const moreThanOneVariants = consolidated.filter(r => r.variants.length > 1);
+  const haveOneVariant = consolidated.filter(
+    (r: ConsolidatedRecord) => r.variants.length === 1
+  );
+  const moreThanOneVariants = consolidated.filter(
+    (r: ConsolidatedRecord) => r.variants.length > 1
+  );
 
-  const variantHexCodesMap: { [variant in string]: string } = {};
+  const variantHexCodesMap: Record<string, string> = {};
 
-  moreThanOneVariants.forEach(r => {
+  moreThanOneVariants.forEach((r: ConsolidatedRecord) => {
     const oneHexcodeMatches = haveOneVariant
-      .filter(ov => r.hexcodes.includes(ov.hexcode1))
-      .map(r => [r.variants[0], r.hexcode1].join('||--||'));
+      .filter((ov: ConsolidatedRecord) => r.hexcodes.includes(ov.hexcode1))
+      .map((r: ConsolidatedRecord) =>
+        [r.variants[0], r.hexcode1].join('||--||')
+      );
     const uniqOneHexcodeMatchs = [...new Set(oneHexcodeMatches)];
-    // console.log(r, uniqOneHexcodeMatchs);
-    uniqOneHexcodeMatchs.forEach(vh => {
+    uniqOneHexcodeMatchs.forEach((vh: string) => {
       const [variant, hexcode] = vh.split('||--||');
       if (!(variant in variantHexCodesMap)) {
         variantHexCodesMap[variant] = hexcode;
@@ -111,14 +114,13 @@ const processCsvFile = async (filePath: string) => {
     });
   });
 
-  moreThanOneVariants.forEach(record => {
+  moreThanOneVariants.forEach((record: ConsolidatedRecord) => {
     if (!record.variants.every(variant => variant in variantHexCodesMap)) {
       return;
     }
     consolidated.splice(consolidated.indexOf(record), 1);
-    record.variants.forEach(variant => {
+    record.variants.forEach((variant: string) => {
       const hexcode = variantHexCodesMap[variant];
-
       const splitOutVariantRecord: ConsolidatedRecord = {
         site_code: record.site_code,
         dom_var: variant,
@@ -128,26 +130,24 @@ const processCsvFile = async (filePath: string) => {
         secondary_site_code: record.secondary_site_code,
         town_name: record.town_name,
         nvar: record.nvar,
-        ...(record.different !== undefined && {
-          different: record.different,
-        }),
+        ...(record.different !== undefined && { different: record.different }),
       };
       consolidated.push(splitOutVariantRecord);
     });
   });
 
-  const uniquedConsolidated = uniqWith(consolidated, (a, b) => {
-    return (
+  const uniquedConsolidated = uniqWith(
+    consolidated,
+    (a: ConsolidatedRecord, b: ConsolidatedRecord) =>
       a.site_code === b.site_code &&
       a.dom_var === b.dom_var &&
       a.hexcode1 === b.hexcode1
-    );
-  });
+  );
 
   if (uniquedConsolidated.length !== consolidated.length) {
     console.warn(
       [
-        clc.yellow(`${basename(filePath)}:`),
+        clc.yellow(`${filePath}:`),
         `original Records count: ${consolidatedCountOriginal}`,
         `Records after: ${consolidated.length} `,
         `Removed ${
@@ -161,35 +161,38 @@ const processCsvFile = async (filePath: string) => {
   return consolidated;
 };
 
+const ageGroupKeys = ['sds', 'older', 'alt', 'jung'] as const;
+type AgeGroupKey = (typeof ageGroupKeys)[number];
+
 export const transformCsvsCommand = createCommand('transform-csvs')
-  .description('')
+  .description(
+    'Process QGIS CSV files and store dialect records in the database'
+  )
   .action(async () => {
-    const wordAgeGroupedJson = await readFile(wordAgeGroupedCsvs, {
-      encoding: 'utf-8',
-    });
-    const wordAgeGroupedData = WordAgeGroupedCsvsSchema.parse(
-      JSON.parse(wordAgeGroupedJson)
-    );
-    for (const [
-      wordKey,
-      { word, jung: jungCsv, sds: sdsCsv, alt: altCsv, older: olderCsv },
-    ] of dictEntries(wordAgeGroupedData)) {
-      const [sds, older, alt, jung] = await Promise.all(
-        [sdsCsv, olderCsv, altCsv, jungCsv].map(async csvFile =>
-          csvFile ? processCsvFile(join(wordMappingCsvsDir, csvFile)) : null
+    const words = await prisma.word.findMany();
+    console.log(`Processing ${words.length} words from database...`);
+
+    for (const dbWord of words) {
+      const csvMap: Record<AgeGroupKey, string | null> = {
+        sds: dbWord.csvSds,
+        older: dbWord.csvOlder,
+        alt: dbWord.csvAlt,
+        jung: dbWord.csvJung,
+      };
+
+      const results = await Promise.all(
+        ageGroupKeys.map(async ag =>
+          csvMap[ag]
+            ? processCsvFile(join(wordMappingCsvsDir, csvMap[ag]!))
+            : null
         )
       );
-      const wordData = {
-        word,
-        ...(jung && { jung }),
-        ...(older && { older }),
-        ...(sds && { sds }),
-        ...(alt && { alt }),
-      };
-      const outfilePath = join(wordDataDir, `${wordKey}.json`);
+
+      const [sds, older, alt, jung] = results;
+
       console.log(
         [
-          `Processed word "${word}" (${wordKey}) - '${outfilePath}'`,
+          `Processed word "${dbWord.word}" (${dbWord.wordKey})`,
           ` - jung: ${jung?.length ?? 0} records`,
           ` - older: ${older?.length ?? 0} records`,
           ` - sds: ${sds?.length ?? 0} records`,
@@ -198,7 +201,53 @@ export const transformCsvsCommand = createCommand('transform-csvs')
           '',
         ].join('\n')
       );
-      await writeFile(outfilePath, JSON.stringify(wordData, null, 2));
-      await exec(`pnpx prettier --write "${outfilePath}"`);
+
+      const groupedRecords: [AgeGroupKey, ConsolidatedRecord[]][] = [
+        ['jung', jung ?? []],
+        ['alt', alt ?? []],
+        ['sds', sds ?? []],
+        ['older', older ?? []],
+      ];
+
+      const sitesToUpsert = new Map<string, string>();
+      for (const [, records] of groupedRecords) {
+        for (const r of records) {
+          if (!sitesToUpsert.has(r.site_code)) {
+            sitesToUpsert.set(r.site_code, r.town_name);
+          }
+        }
+      }
+
+      if (sitesToUpsert.size > 0) {
+        await prisma.site.createMany({
+          data: [...sitesToUpsert.entries()].map(([siteCode, townName]) => ({
+            siteCode,
+            townName,
+          })),
+          skipDuplicates: true,
+        });
+      }
+
+      for (const [ageGroup, records] of groupedRecords) {
+        if (records.length === 0) continue;
+        await prisma.surveyRecord.createMany({
+          data: records.map(r => ({
+            wordId: dbWord.id,
+            ageGroup,
+            siteCode: r.site_code,
+            secondarySiteCode: r.secondary_site_code || null,
+            domVar: r.dom_var,
+            variants: r.variants,
+            hexcode1: r.hexcode1,
+            hexcodes: r.hexcodes,
+            nvar: r.nvar,
+            different: r.different ?? null,
+          })),
+          skipDuplicates: true,
+        });
+      }
     }
+
+    await prisma.$disconnect();
+    console.log('Done.');
   });

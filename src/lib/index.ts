@@ -1,4 +1,5 @@
 export * from './array';
+export * from './db';
 export * from './dict';
 export * from './shell';
 export * from './sys';

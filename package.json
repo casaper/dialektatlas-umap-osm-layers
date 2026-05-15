@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Generate uMap (OpenStreetMap) configurations with layers showing the regional distribution of Swiss German words based on Dialektatlas data.",
   "scripts": {
-    "word-map": "tsx src/util.ts word-csv-map",
-    "transform-csvs": "tsx src/util.ts transform-csvs",
-    "pdf-extract": "tsx src/util.ts pdf-extract",
-    "scan-pdf-pages": "tsx src/util.ts scan-pdf-pages",
-    "build-word-index": "tsx src/util.ts build-word-index"
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "word-map": "tsx --env-file=.env src/util.ts word-csv-map",
+    "transform-csvs": "tsx --env-file=.env src/util.ts transform-csvs",
+    "pdf-extract": "tsx --env-file=.env src/util.ts pdf-extract",
+    "scan-pdf-pages": "tsx --env-file=.env src/util.ts scan-pdf-pages"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^10.0.0",

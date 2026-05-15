@@ -29,6 +29,7 @@ __MACOSX/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+/.env
 /.env*.local
 # Claude Code plugins
 .remember/
@@ -62,13 +63,9 @@ src/source_data/**/*.gz
 src/source_data/**/*.bz2
 src/source_data/**/*.xz
 src/source_data/**/*.rar
-src/source_data/word_mapping_csvs/**/*.json
 src/source_data/unmappable_csvs/**/*.json
+src/source_data/word_mapping_csvs/**/*.json
+src/source_data/word_data/
 src/source_data/samples.json
-src/source_data/word_data/*.json
 src/source_data/Dialaektatlas_2025_150dpi.pdf
 src/source_data/word_pdf_pages/
-src/source_data/word-pdf-toc.json
-src/source_data/word-pdf-page-index.json
-src/source_data/word-pdf-scan.json
-src/source_data/word-master-index.json
