@@ -29,3 +29,7 @@ export const wordPdfPagesDir = join(
   projectRoot,
   'src/source_data/word_pdf_pages'
 );
+export const wordMasterIndexPath = join(
+  projectRoot,
+  'src/source_data/word-master-index.json'
+);

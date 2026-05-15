@@ -5,7 +5,8 @@
   "scripts": {
     "word-map": "tsx src/util.ts word-csv-map",
     "transform-csvs": "tsx src/util.ts transform-csvs",
-    "pdf-extract": "tsx src/util.ts pdf-extract"
+    "pdf-extract": "tsx src/util.ts pdf-extract",
+    "build-word-index": "tsx src/util.ts build-word-index"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^10.0.0",

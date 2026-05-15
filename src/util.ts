@@ -1,6 +1,7 @@
 import { program } from '@commander-js/extra-typings';
 
 import {
+  buildWordIndexCommand,
   pdfExtractCommand,
   transformCsvsCommand,
   wordCsvMapCommand,
@@ -15,4 +16,5 @@ program
   .addCommand(transformCsvsCommand)
   .addCommand(wordCsvMapCommand)
   .addCommand(pdfExtractCommand)
+  .addCommand(buildWordIndexCommand)
   .parse();

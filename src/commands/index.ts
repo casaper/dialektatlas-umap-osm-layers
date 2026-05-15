@@ -1,3 +1,4 @@
+export * from './build-word-index';
 export * from './csv-rows.zod';
 export * from './pdf-extract';
 export * from './pdf-word-map';

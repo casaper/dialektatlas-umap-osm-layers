@@ -23,14 +23,14 @@ const execFile = promisify(cpExecFile);
 
 type TocEntry = { label: string; startPage: number };
 
-type PageIndexEntry = {
+export type PageIndexEntry = {
   label: string;
   startPage: number;
   sdsPage: number;
   altJungPage: number;
 };
 
-type WordPdfPageIndex = Record<string, PageIndexEntry>;
+export type WordPdfPageIndex = Record<string, PageIndexEntry>;
 
 type QpdfOutlineEntry = {
   title: string;
