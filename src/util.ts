@@ -1,6 +1,10 @@
 import { program } from '@commander-js/extra-typings';
 
-import { transformCsvsCommand, wordCsvMapCommand } from './commands';
+import {
+  pdfExtractCommand,
+  transformCsvsCommand,
+  wordCsvMapCommand,
+} from './commands';
 
 program
   .name('util')
@@ -10,4 +14,5 @@ program
   )
   .addCommand(transformCsvsCommand)
   .addCommand(wordCsvMapCommand)
+  .addCommand(pdfExtractCommand)
   .parse();
