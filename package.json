@@ -6,6 +6,7 @@
     "word-map": "tsx src/util.ts word-csv-map",
     "transform-csvs": "tsx src/util.ts transform-csvs",
     "pdf-extract": "tsx src/util.ts pdf-extract",
+    "scan-pdf-pages": "tsx src/util.ts scan-pdf-pages",
     "build-word-index": "tsx src/util.ts build-word-index"
   },
   "devDependencies": {
@@ -15,6 +16,7 @@
     "@eslint/markdown": "^8.0.1",
     "@types/lodash": "^4.17.24",
     "@types/node": "^25.8.0",
+    "@types/pg": "^8.20.0",
     "cspell": "^10.0.0",
     "cspell-cli": "^10.0.0",
     "eslint": "^10.3.0",
@@ -27,18 +29,23 @@
     "jiti": "^2.7.0",
     "prettier": "^3.8.3",
     "prettier-plugin-sh": "^0.18.1",
+    "prisma": "^7.8.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.3"
   },
   "dependencies": {
     "@commander-js/extra-typings": "^14.0.0",
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
     "@tsconfig/node24": "^24.0.4",
     "@types/cli-color": "^2.0.6",
     "cli-color": "^2.0.4",
     "commander": "^14.0.3",
     "csv-parse": "^6.2.1",
+    "dotenv": "^17.4.2",
     "glob": "^13.0.6",
     "lodash": "^4.18.1",
+    "pg": "^8.20.0",
     "quicktype": "^23.2.6",
     "tsx": "^4.22.0",
     "zod": "^4.4.3"

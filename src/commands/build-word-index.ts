@@ -9,27 +9,52 @@ import {
   wordDataDir,
   wordMasterIndexPath,
   wordPdfPageIndexPath,
+  wordPdfScanPath,
 } from '../paths';
 import type { PageIndexEntry, WordPdfPageIndex } from './pdf-extract';
+import type { PdfScanEntry, WordPdfScan } from './scan-pdf-pages';
 import { WordAgeGroupedCsvsSchema } from './word-csv-map';
+
+type WordDataSummary = {
+  siteCount: Partial<Record<'jung' | 'alt' | 'sds' | 'older', number>>;
+  variantCount: Partial<Record<'jung' | 'alt' | 'sds' | 'older', number>>;
+  hexcodes: string[];
+};
 
 type MasterWordIndexEntry = {
   word: string;
   csvGroups: { jung?: string; alt?: string; older?: string; sds?: string };
   pdf: Pick<PageIndexEntry, 'label' | 'sdsPage' | 'altJungPage'> | null;
-  hasWordData: boolean;
+  wordData: WordDataSummary | null;
+  pdfScan: PdfScanEntry | null;
 };
 
 type MasterWordIndex = Record<string, MasterWordIndexEntry>;
 
-const WordDataWordSchema = z.object({ word: z.string() });
+const AgeGroupRecordSchema = z.object({
+  dom_var: z.string(),
+  hexcodes: z.array(z.string()),
+});
+
+const WordDataSchema = z.object({
+  word: z.string(),
+  jung: z.array(AgeGroupRecordSchema).optional(),
+  alt: z.array(AgeGroupRecordSchema).optional(),
+  sds: z.array(AgeGroupRecordSchema).optional(),
+  older: z.array(AgeGroupRecordSchema).optional(),
+});
+
+const ageGroups = ['jung', 'alt', 'sds', 'older'] as const;
+type AgeGroup = (typeof ageGroups)[number];
+
+type WordDataInfo = { word: string; summary: WordDataSummary };
 
 export const buildWordIndexCommand = createCommand('build-word-index')
   .description(
     'Join word_data, CSV grouping, and PDF page index into a single master index'
   )
   .action(async () => {
-    const [csvRaw, pdfRaw, wordDataFiles] = await Promise.all([
+    const [csvRaw, pdfRaw, wordDataFiles, pdfScanRaw] = await Promise.all([
       readFile(wordAgeGroupedCsvs, 'utf-8').then(s =>
         WordAgeGroupedCsvsSchema.parse(JSON.parse(s))
       ),
@@ -37,6 +62,9 @@ export const buildWordIndexCommand = createCommand('build-word-index')
         s => JSON.parse(s) as WordPdfPageIndex
       ),
       glob(join(wordDataDir, '*.json')),
+      readFile(wordPdfScanPath, 'utf-8')
+        .then(s => JSON.parse(s) as WordPdfScan)
+        .catch(() => ({}) as WordPdfScan),
     ]);
 
     const wordDataKeySet = new Set(
@@ -49,12 +77,29 @@ export const buildWordIndexCommand = createCommand('build-word-index')
       ...Object.keys(pdfRaw),
     ]);
 
-    const displayNames = new Map<string, string>();
+    const wordDataInfos = new Map<string, WordDataInfo>();
     await Promise.all(
       [...wordDataKeySet].map(async key => {
         const raw = await readFile(join(wordDataDir, `${key}.json`), 'utf-8');
-        const { word } = WordDataWordSchema.parse(JSON.parse(raw));
-        displayNames.set(key, word);
+        const parsed = WordDataSchema.parse(JSON.parse(raw));
+        const siteCount: Partial<Record<AgeGroup, number>> = {};
+        const variantCount: Partial<Record<AgeGroup, number>> = {};
+        const allHexcodes = new Set<string>();
+        for (const ag of ageGroups) {
+          const records = parsed[ag];
+          if (!records?.length) continue;
+          siteCount[ag] = records.length;
+          variantCount[ag] = new Set(records.map(r => r.dom_var)).size;
+          records.forEach(r => r.hexcodes.forEach(h => allHexcodes.add(h)));
+        }
+        wordDataInfos.set(key, {
+          word: parsed.word,
+          summary: {
+            siteCount,
+            variantCount,
+            hexcodes: [...allHexcodes].sort(),
+          },
+        });
       })
     );
 
@@ -62,9 +107,9 @@ export const buildWordIndexCommand = createCommand('build-word-index')
     for (const key of [...allKeys].sort()) {
       const csv = csvRaw[key];
       const pdf = pdfRaw[key];
-      const hasWordData = wordDataKeySet.has(key);
+      const info = wordDataInfos.get(key);
       index[key] = {
-        word: displayNames.get(key) ?? key,
+        word: info?.word ?? key,
         csvGroups: csv
           ? { jung: csv.jung, alt: csv.alt, older: csv.older, sds: csv.sds }
           : {},
@@ -75,7 +120,8 @@ export const buildWordIndexCommand = createCommand('build-word-index')
               altJungPage: pdf.altJungPage,
             }
           : null,
-        hasWordData,
+        wordData: info?.summary ?? null,
+        pdfScan: pdfScanRaw[key] ?? null,
       };
     }
 
@@ -89,8 +135,16 @@ export const buildWordIndexCommand = createCommand('build-word-index')
     const withCsv = Object.values(index).filter(
       e => Object.keys(e.csvGroups).length > 0
     ).length;
+    const withWordData = Object.values(index).filter(
+      e => e.wordData !== null
+    ).length;
+    const withPdfScan = Object.values(index).filter(
+      e => e.pdfScan !== null
+    ).length;
     console.log(`Master index: ${Object.keys(index).length} words`);
-    console.log(`  With PDF pages: ${withPdf}`);
-    console.log(`  With CSV data:  ${withCsv}`);
+    console.log(`  With PDF pages:  ${withPdf}`);
+    console.log(`  With CSV data:   ${withCsv}`);
+    console.log(`  With word data:  ${withWordData}`);
+    console.log(`  With PDF scan:   ${withPdfScan}`);
     console.log(`  Written → ${wordMasterIndexPath}`);
   });
