@@ -42,6 +42,8 @@ model Site {
   townName String
   lat      Float?
   lng      Float?
+  geometry Json?
+  sdsCode  String?
 
   records  SurveyRecord[]
 }

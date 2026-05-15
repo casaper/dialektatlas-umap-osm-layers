@@ -86,8 +86,8 @@ export const scanPdfPagesCommand = createCommand('scan-pdf-pages')
               await rm(pngPath, { force: true });
             }
 
-            await prisma.word.update({
-              where: { wordKey },
+            await prisma.word.updateMany({
+              where: { wordKey, qrUrl: null },
               data: { textLabel, qrUrl },
             });
 

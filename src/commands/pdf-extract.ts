@@ -116,8 +116,8 @@ export const pdfExtractCommand = createCommand('pdf-extract')
         ([wordKey, { label, startPage, sdsPage, altJungPage }]) => {
           const id = wordKeyToId.get(wordKey);
           if (!id) return;
-          return prisma.word.update({
-            where: { id },
+          return prisma.word.updateMany({
+            where: { id, pdfStartPage: null },
             data: {
               pdfLabel: label,
               pdfStartPage: startPage,

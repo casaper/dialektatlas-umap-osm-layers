@@ -9,7 +9,8 @@
     "word-map": "tsx --env-file=.env src/util.ts word-csv-map",
     "transform-csvs": "tsx --env-file=.env src/util.ts transform-csvs",
     "pdf-extract": "tsx --env-file=.env src/util.ts pdf-extract",
-    "scan-pdf-pages": "tsx --env-file=.env src/util.ts scan-pdf-pages"
+    "scan-pdf-pages": "tsx --env-file=.env src/util.ts scan-pdf-pages",
+    "import-regions": "tsx --env-file=.env src/util.ts import-regions"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^10.0.0",

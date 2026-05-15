@@ -16,3 +16,8 @@ export const wordPdfPagesDir = join(
   projectRoot,
   'src/source_data/word_pdf_pages'
 );
+
+export const regionGeoJsonPath = join(
+  projectRoot,
+  'dialektatlas-data-source/export_try/dialekt_regionen_adapted.geojson'
+);
