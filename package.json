@@ -2,7 +2,10 @@
   "name": "dialektatlas-umap-osm-layers",
   "version": "1.0.0",
   "description": "Generate uMap (OpenStreetMap) configurations with layers showing the regional distribution of Swiss German words based on Dialektatlas data.",
-  "scripts": {},
+  "scripts": {
+    "word-map": "tsx src/util.ts word-csv-map",
+    "transform-csvs": "tsx src/util.ts transform-csvs"
+  },
   "devDependencies": {
     "@cspell/eslint-plugin": "^10.0.0",
     "@eslint/js": "^10.0.1",

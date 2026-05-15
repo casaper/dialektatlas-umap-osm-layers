@@ -1,0 +1,15 @@
+{
+  "outputStyle": "default",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/direnv-load.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
