@@ -1,9 +1,10 @@
 import * as z from 'zod';
 
-import { PropertiesUmapOptionsSchema } from './dependencies/PropertiesUmapOptionsSchema';
+import { PropertiesUmapOptionsSchema } from './PropertiesUmapOptionsSchema';
 
-export const FeaturePropertiesSchema = z.object({
+export const FeaturePropertiesSchema = z.looseObject({
   _umap_options: PropertiesUmapOptionsSchema.optional(),
+  description: z.string().optional(),
   fid: z.number().optional(),
   name: z.string().optional(),
 });

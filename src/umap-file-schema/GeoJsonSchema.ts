@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import { GeometryElementSchema } from './dependencies/GeometryElementSchema';
+import { GeometryElementSchema } from './GeometryElementSchema';
 
 export const GeoJsonSchema = z.object({
   type: z.enum([

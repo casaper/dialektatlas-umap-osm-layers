@@ -15,7 +15,7 @@ export const PropertiesUmapOptionsSchema = z.object({
     .string()
     .optional()
     .meta({ description: 'Same as color if not set. [Optional]' }),
-  fillOpacity: z.any().optional(),
+  fillOpacity: z.union([z.number(), z.string()]).optional(),
   iconClass: z
     .enum(['Ball', 'Circle', 'Default', 'Drop', 'LargeCircle', 'Raw'])
     .optional()
@@ -49,7 +49,7 @@ export const PropertiesUmapOptionsSchema = z.object({
       ].join('\n'),
     }),
   mask: z.boolean().optional(),
-  opacity: z.number().optional(),
+  opacity: z.union([z.number(), z.string()]).optional(),
   outlink: z.string().optional().meta({
     description: 'Define link to open in a new window on polygon click.',
   }),
@@ -83,6 +83,7 @@ export const PropertiesUmapOptionsSchema = z.object({
   route: RouteSchema.optional(),
   showLabel: z
     .boolean()
+    .nullable()
     .optional()
     .meta({
       description: [
@@ -91,7 +92,7 @@ export const PropertiesUmapOptionsSchema = z.object({
         `Default is 'never'.`,
       ].join('\n'),
     }),
-  smoothFactor: z.number().optional().meta({
+  smoothFactor: z.union([z.number(), z.string()]).optional().meta({
     description:
       'How much to simplify the polyline on each zoom level (more = better performance and smoother look, less = more accurate)',
   }),
@@ -106,7 +107,7 @@ export const PropertiesUmapOptionsSchema = z.object({
   textPathRepeat: z.boolean().optional(),
   textPathRotate: z.number().optional(),
   textPathSize: z.number().optional(),
-  weight: z.number().optional(),
+  weight: z.union([z.number(), z.string()]).optional(),
   zoomTo: z
     .number()
     .optional()

@@ -8,10 +8,10 @@ export const RemoteDataSchema = z.object({
       z.null(),
     ])
     .optional(),
-  from: z.number().optional(),
+  fromZoom: z.number().optional(),
   licence: z.string().optional(),
   proxy: z.boolean().optional(),
-  to: z.number().optional(),
+  toZoom: z.number().optional(),
   ttl: z.union([z.number(), z.number(), z.null()]).optional(),
   url: z.string().optional(),
 });
