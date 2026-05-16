@@ -14,15 +14,15 @@ enum AgeGroup {
 }
 
 model Word {
-  id           Int            @id @default(autoincrement())
-  wordKey      String         @unique
-  word         String
+  id      Int    @id @default(autoincrement())
+  wordKey String @unique
+  word    String
 
   // Source CSV references (from word-csv-map)
-  csvJung      String?
-  csvAlt       String?
-  csvSds       String?
-  csvOlder     String?
+  csvJung  String?
+  csvAlt   String?
+  csvSds   String?
+  csvOlder String?
 
   // PDF outline match (from pdf-extract phases 1+2)
   pdfLabel     String?
@@ -31,26 +31,57 @@ model Word {
   altJungPage  Int?
 
   // PDF scan results (from scan-pdf-pages)
-  textLabel    String?
-  qrUrl        String?
+  textLabel String?
+  qrUrl     String?
 
-  records      SurveyRecord[]
+  // Audio page URL resolved from qrUrl redirect
+  audioUrl String? @unique
+
+  audioData  WordAudios?     @relation(fields: [audioUrl], references: [audioUrl])
+  siteAudios SiteWordAudio[]
+  records    SurveyRecord[]
+}
+
+model WordAudios {
+  audioUrl   String  @id
+  title      String?
+  pageNumber Int?
+
+  word       Word?
+  siteAudios SiteWordAudio[]
+}
+
+model SiteWordAudio {
+  id           Int     @id @default(autoincrement())
+  audioUrl     String
+  wordKey      String?
+  chWord       String
+  townName     String
+  canton       String
+  ageGroup     String
+  audioFileUrl String?
+
+  wordAudio WordAudios @relation(fields: [audioUrl], references: [audioUrl])
+  word      Word?      @relation(fields: [wordKey], references: [wordKey])
+
+  @@unique([audioUrl, townName, canton, ageGroup])
 }
 
 model Site {
-  siteCode String         @id
+  siteCode String  @id
   townName String
   lat      Float?
   lng      Float?
   geometry Json?
   sdsCode  String?
+  canton   String?
 
-  records  SurveyRecord[]
+  records SurveyRecord[]
 }
 
 model SurveyRecord {
   id                Int      @id @default(autoincrement())
-  wordId            Int
+  wordKey           String
   ageGroup          AgeGroup
   siteCode          String
   secondarySiteCode String?
@@ -61,11 +92,11 @@ model SurveyRecord {
   nvar              String
   different         Boolean?
 
-  word Word @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  word Word @relation(fields: [wordKey], references: [wordKey], onDelete: Cascade)
   site Site @relation(fields: [siteCode], references: [siteCode])
 
-  @@unique([wordId, ageGroup, siteCode])
-  @@index([wordId])
+  @@unique([wordKey, ageGroup, siteCode])
+  @@index([wordKey])
   @@index([siteCode])
   @@index([ageGroup])
 }

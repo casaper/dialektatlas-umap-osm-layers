@@ -6,6 +6,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
+    "db:backup": "pg_dump dialektatlas-umap | gzip > prisma/db_backups/$(date +%Y-%m-%dT%H_%M_%S).sql.gz",
     "word-map": "tsx --env-file=.env src/util.ts word-csv-map",
     "transform-csvs": "tsx --env-file=.env src/util.ts transform-csvs",
     "pdf-extract": "tsx --env-file=.env src/util.ts pdf-extract",
