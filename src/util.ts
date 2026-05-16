@@ -1,8 +1,10 @@
 import { program } from '@commander-js/extra-typings';
 
 import {
+  crawlAudioCommand,
   importRegionsCommand,
   pdfExtractCommand,
+  resolveAudioUrlsCommand,
   scanPdfPagesCommand,
   transformCsvsCommand,
   wordCsvMapCommand,
@@ -19,4 +21,6 @@ program
   .addCommand(pdfExtractCommand)
   .addCommand(scanPdfPagesCommand)
   .addCommand(importRegionsCommand)
+  .addCommand(resolveAudioUrlsCommand)
+  .addCommand(crawlAudioCommand)
   .parse();

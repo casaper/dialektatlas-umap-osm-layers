@@ -223,6 +223,7 @@ export const transformCsvsCommand = createCommand('transform-csvs')
           data: [...sitesToUpsert.entries()].map(([siteCode, townName]) => ({
             siteCode,
             townName,
+            canton: siteCode.slice(0, 2),
           })),
           skipDuplicates: true,
         });
@@ -232,7 +233,7 @@ export const transformCsvsCommand = createCommand('transform-csvs')
         if (records.length === 0) continue;
         await prisma.surveyRecord.createMany({
           data: records.map(r => ({
-            wordId: dbWord.id,
+            wordKey: dbWord.wordKey,
             ageGroup,
             siteCode: r.site_code,
             secondarySiteCode: r.secondary_site_code || null,

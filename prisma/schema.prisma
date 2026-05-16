@@ -34,8 +34,8 @@ model Word {
   textLabel String?
   qrUrl     String?
 
-  // Audio page URL resolved from qrUrl redirect
-  audioUrl String? @unique
+  // Audio page URL resolved from qrUrl redirect (multiple Words can share one audio page)
+  audioUrl String?
 
   audioData  WordAudios?     @relation(fields: [audioUrl], references: [audioUrl])
   siteAudios SiteWordAudio[]
@@ -47,22 +47,24 @@ model WordAudios {
   title      String?
   pageNumber Int?
 
-  word       Word?
+  words      Word[]
   siteAudios SiteWordAudio[]
 }
 
 model SiteWordAudio {
-  id           Int     @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   audioUrl     String
   wordKey      String?
   chWord       String
   townName     String
   canton       String
-  ageGroup     String
+  ageGroup     AgeGroup?
+  siteCode     String?
   audioFileUrl String?
 
-  wordAudio WordAudios @relation(fields: [audioUrl], references: [audioUrl])
-  word      Word?      @relation(fields: [wordKey], references: [wordKey])
+  wordAudio    WordAudios    @relation(fields: [audioUrl], references: [audioUrl])
+  word         Word?         @relation(fields: [wordKey], references: [wordKey])
+  surveyRecord SurveyRecord? @relation(fields: [wordKey, ageGroup, siteCode], references: [wordKey, ageGroup, siteCode])
 
   @@unique([audioUrl, townName, canton, ageGroup])
 }
@@ -77,6 +79,8 @@ model Site {
   canton   String?
 
   records SurveyRecord[]
+
+  @@unique([townName, canton])
 }
 
 model SurveyRecord {
@@ -92,8 +96,9 @@ model SurveyRecord {
   nvar              String
   different         Boolean?
 
-  word Word @relation(fields: [wordKey], references: [wordKey], onDelete: Cascade)
-  site Site @relation(fields: [siteCode], references: [siteCode])
+  word       Word           @relation(fields: [wordKey], references: [wordKey], onDelete: Cascade)
+  site       Site           @relation(fields: [siteCode], references: [siteCode])
+  siteAudios SiteWordAudio[]
 
   @@unique([wordKey, ageGroup, siteCode])
   @@index([wordKey])

@@ -16,33 +16,115 @@ QGIS git repository. Reading it will exhaust context. Always ask first.
 
 **Never read `src/source_data/samples.json`** — it is 47 MB.
 
+## Environment & Tooling
+
+### direnv
+
+A `.envrc` hook loads `DATABASE_URL` from `.env.local` and adds `node_modules/.bin` to `PATH`.
+The `.claude/hooks/direnv-load.sh` hook injects direnv exports at session start, so `DATABASE_URL`
+and project binaries (`prisma`, `tsx`, `eslint`, etc.) are available directly in every Bash tool call.
+
+### Package manager — always pnpm
+
+Use `pnpm`, `pnpx`, or `pnpm dlx`. Never use `npx`.
+
+```bash
+pnpx prettier --write src/   # ✓
+pnpm dlx some-tool           # ✓
+npx prettier ...             # ✗ wrong
+```
+
+### Running prisma commands with DATABASE_URL
+
+If direnv hasn't injected `DATABASE_URL` into a Bash tool call, source it inline:
+
+```bash
+set -o allexport; source .env.local; set +o allexport; prisma <subcommand>
+```
+
+This works for any non-interactive prisma command (`generate`, `migrate deploy`,
+`migrate status`, `studio`, etc.).
+
+### Database migrations — always backup first
+
+**Before running any migration**, take a backup:
+
+```bash
+pnpm run db:backup           # creates prisma/db_backups/<timestamp>.sql.gz
+```
+
+**NEVER write migration SQL files by hand. This is strictly forbidden.** Always use
+`prisma migrate dev` — it generates the correct SQL from the schema diff and registers the
+migration in Prisma's history. Hand-written migrations corrupt the migration history and are
+permanently forbidden, no exceptions.
+
+`prisma migrate dev` is interactive and cannot run in Claude Code's non-TTY Bash tool. Ask the
+user to run it themselves with `! prisma migrate dev --name <migration_name>` in the prompt.
+
+Migration workflow:
+```bash
+pnpm run db:backup
+# then ask the user to run:
+! prisma migrate dev --name <migration_name>
+# then regenerate the client (non-interactive, safe to run in Bash tool):
+set -o allexport; source .env.local; set +o allexport; prisma generate
+```
+
+If a `--create-only` migration is needed for custom SQL edits:
+```bash
+# ask the user to run:
+! prisma migrate dev --create-only --name <migration_name>
+# edit prisma/migrations/<timestamp>_<name>/migration.sql
+set -o allexport; source .env.local; set +o allexport; prisma migrate deploy
+set -o allexport; source .env.local; set +o allexport; prisma generate
+```
+
 ## Data Pipeline
 
 ```
 src/source_data/word_mapping_csvs/   ← QGIS CSV exports (input, ~1100 files)
          │
          ▼  pnpm run word-map
-src/source_data/word-age-grouped-csvs.json   ← index: word → {jung, alt, sds} CSVs
-         │
+         │    Word rows upserted to DB (wordKey, csvRefs)
          ▼  pnpm run transform-csvs
-src/source_data/word_data/{word}.json        ← consolidated records per word
+         │    Site + SurveyRecord rows upserted to DB
+         ▼  pnpm run pdf-extract
+         │    Word rows updated with pdfLabel, pdfStartPage, sdsPage, altJungPage
+         │    word_pdf_pages/{word}/ extracted as lossless PDFs
+         ▼  pnpm run scan-pdf-pages
+         │    Word rows updated with textLabel, qrUrl
+         ▼  pnpm run import-regions
+         │    Site rows updated with lat, lng, geometry (GeoJSON), sdsCode, canton
+         ▼  pnpm run resolve-audio-urls
+         │    Word.audioUrl resolved from qrUrl redirect; WordAudios rows created
+         ▼  pnpm run crawl-audio
+              WordAudios updated with title/pageNumber; SiteWordAudio rows created
          │
          ▼  (NEXT MILESTONE — not yet built)
 output/{word}.umap                           ← uMap layer file for upload
 ```
 
-**Next milestone**: Build the `word_data/*.json → .umap` generator.
-The word_data records do NOT yet include lat/lng coordinates — site_codes need to be linked
-to a coordinate lookup. This is a known gap to resolve when building the generator.
+Run the full pipeline end-to-end:
+
+```bash
+pnpm run pipeline   # word-map → transform-csvs → pdf-extract → scan-pdf-pages → import-regions
+```
+
+`resolve-audio-urls` and `crawl-audio` are not yet wired into the pipeline script.
 
 ## Running Commands
 
 ```bash
-pnpm run word-map        # re-index CSV files → word-age-grouped-csvs.json
-pnpm run transform-csvs  # process all words → src/source_data/word_data/*.json
+pnpm run word-map             # CSV files → Word rows in DB
+pnpm run transform-csvs       # Word rows → Site + SurveyRecord rows
+pnpm run pdf-extract          # PDF outline → Word rows + word_pdf_pages/ files
+pnpm run scan-pdf-pages       # word_pdf_pages/ → Word rows (textLabel, qrUrl)
+pnpm run import-regions       # GeoJSON → Site rows (lat, lng, geometry, canton)
+pnpm run resolve-audio-urls   # qrUrl redirects → Word.audioUrl + WordAudios rows
+pnpm run crawl-audio          # audio.dialektatlas.ch → WordAudios + SiteWordAudio rows
 ```
 
-Or via tsx directly:
+Or via tsx directly (DATABASE_URL provided by direnv):
 
 ```bash
 tsx src/util.ts word-csv-map
@@ -57,11 +139,16 @@ tsx src/util.ts transform-csvs
 | `src/paths.ts` | Canonical path constants |
 | `src/commands/` | CLI command implementations |
 | `src/lib/` | Utility helpers (array, dict, typecheck, shell) |
+| `src/lib/db.ts` | Prisma client singleton |
 | `src/umap-file-schema/` | Zod schemas for `.umap` file format |
 | `src/umap-file-schema/umap_type_analysis/examples/umap_backup_dialaktatlas-zwiebel.umap` | Canonical uMap example |
 | `src/source_data/word_mapping_csvs/` | Raw CSV input files |
-| `src/source_data/word_data/` | Processed word JSON output |
-| `src/source_data/word-age-grouped-csvs.json` | CSV index manifest |
+| `src/source_data/word_pdf_pages/` | Extracted per-word PDF pages |
+| `prisma/schema.prisma` | Database schema (3 models: Word, Site, SurveyRecord + audio models) |
+| `prisma/migrations/` | Migration SQL history |
+| `prisma/db_backups/` | Timestamped gzip DB dumps (run `pnpm run db:backup` before migrations) |
+| `.envrc` | direnv config — loads DATABASE_URL from `.env.local`, adds `node_modules/.bin` to PATH |
+| `.env.local` | Local secrets (DATABASE_URL) — not committed |
 
 ## CSV File Naming Convention
 
@@ -182,11 +269,3 @@ Never write or edit `index.ts` barrel files by hand. Always generate them with:
 ```
 
 Run this command against the directory whose `index.ts` needs to be created or updated.
-
-## Custom Agents & Skills
-
-- `/word-data-inspector <word>` — summarize a word's dialect data (variants, coverage, hexcodes)
-- `/validate-umap [file]` — validate a `.umap` file against the Zod schemas
-- `/run-pipeline` — run the full CSV → word_data transformation
-- `word-data-inspector` agent — available via Agent tool for deeper word analysis
-- `umap-generator` agent — drafts a `.umap` file from a word's processed JSON

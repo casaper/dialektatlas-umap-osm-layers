@@ -55,8 +55,9 @@ export const importRegionsCommand = createCommand('import-regions')
           lng,
           geometry: feature.geometry,
           sdsCode,
+          canton: siteCode.slice(0, 2),
         },
-        update: { lat, lng, geometry: feature.geometry, sdsCode },
+        update: { lat, lng, geometry: feature.geometry, sdsCode, canton: siteCode.slice(0, 2) },
       });
       upserted++;
     }
