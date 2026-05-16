@@ -72,7 +72,7 @@ export const pdfWordOverrides: Record<string, readonly string[]> = {
   spät: ['spätAdjektivAdverbKombi'],
   // Grammatik – Pronomen
   'dich / dir': ['dichDir'],
-  'meine Cousine': ['meineCousine'],
+  'meine Cousine': ['meineCousine', 'michMir'],
   // Grammatik – Genus
   'zwei Männer, Frauen, Kinder': ['zahlwortZwei', 'zweiMänner'],
   'drei Männer, Frauen, Kinder': [
@@ -80,13 +80,14 @@ export const pdfWordOverrides: Record<string, readonly string[]> = {
     'dreiFrauen',
     'dreiKinder',
     'dreiMFNKombi',
+    'drei',
   ],
   // Grammatik – Satzbau
   'Mirjams Hut': ['mirjamsHut'],
   '(der) Patrick': ['derPatrick'],
   'gehen lassen': ['gehenLassenVergangenheit'],
   'gewesen bin': ['gewesenBin'],
-  'Lass ihn gehen': ['lassIhnGehen'],
+  'Lass ihn gehen': ['lassIhnGehen', 'gehen1Sg'],
   'Es kommt regnen': ['kommtRegnen'],
   // Sprache im Alltag – Grussformeln
   'Grussformeln (morgens)': ['gruss01morgen'],
@@ -94,7 +95,7 @@ export const pdfWordOverrides: Record<string, readonly string[]> = {
   'Grussformeln (nachmittags)': ['gruss03nami'],
   'Grussformeln (abends)': ['gruss04abend'],
   'Grussformeln (beim Wandern)': ['gruss05wandern'],
-  'Grussformeln (am Telefon)': ['telefongruss'],
+  'Grussformeln (am Telefon)': ['walter_benjamin'],
   'Verabschiedung (auf der Bank)': ['verabschiedenBank'],
   // Sprache im Alltag – Höflichkeit
   'Bedanken (im Bus)': ['busBedanken'],
@@ -141,9 +142,10 @@ export const pdfPageOverrides: Record<number, readonly string[]> = {
   344: ['gruss03nami'],
   346: ['gruss04abend'],
   348: ['gruss05wandern'],
-  350: ['telefongruss'],
+  350: ['telefongruss', 'walter_benjamin', 'walterBenjamin'],
   // Pragmatik – "Verabschieden und bedanken" = Bedanken im Bus
   354: ['busBedanken'],
+  308: ['drei'],
 };
 
 // TOC entries known to have no word_data match (overview/bibliography pages or
