@@ -29,8 +29,6 @@ __MACOSX/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-/.env
-/.env*.local
 # Claude Code plugins
 .remember/
 # Editors&IDEs
@@ -53,7 +51,9 @@ tags
 ~$*.xls*
 ~$*.ppt*
 secring.*
-random_defaults.code-workspace
+
+.env*.local
+
 src/source_data/**/*.csv
 src/source_data/**/*.zip
 src/source_data/**/*.tar
