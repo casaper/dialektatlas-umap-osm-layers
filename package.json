@@ -14,7 +14,9 @@
     "import-regions": "tsx --env-file=.env.local src/util.ts import-regions",
     "resolve-audio-urls": "tsx --env-file=.env.local src/util.ts resolve-audio-urls",
     "crawl-audio": "tsx --env-file=.env.local src/util.ts crawl-audio",
-    "pipeline": "run-s word-map transform-csvs pdf-extract scan-pdf-pages import-regions resolve-audio-urls crawl-audio"
+    "ingest-audio-api": "tsx --env-file=.env.local src/util.ts ingest-audio-api",
+    "backfill-site-codes": "tsx --env-file=.env.local src/util.ts backfill-site-codes",
+    "pipeline": "run-s word-map transform-csvs pdf-extract scan-pdf-pages import-regions resolve-audio-urls crawl-audio ingest-audio-api backfill-site-codes"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^10.0.0",
